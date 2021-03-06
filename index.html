@@ -13,16 +13,20 @@
 
 <body>
     <!--Menú-->
-    <nav class="navbar navbar-expand-lg navbar-collapse bg-secondary">
-        <div class="container">
-            <a class="navbar-brand" href="#"><img src="img-style/aprendeconupb.png" width="250" height="100" alt=""></a>
-            <img src="hamburguesa.svg" alt="" class="hamburguer" >
-        </div>    
-            <a href="#Inicio">Inicio</a>
-            <a href="#Pilas">Pilas</a>
-            <a href="#Listas Sencillas">Listas Sencillas</a>
-            <a href="#Listas Dobles">Listas Dobles</a>                             
+    <div class="header">
+        <nav class="navbar navbar-expand-lg navbar-collapse bg-secondary">
+            <div class="container">
+                <a class="navbar-brand" href="#"><img src="img-style/aprendeconupb.png" width="250" height="100" alt=""></a>
+                <img src="hamburguesa.svg" alt="" class="hamburguesa" >
+            </div>    
+                <nav class="menu" >
+                    <a href="#Inicio">Inicio</a>
+                    <a href="#Pilas">Pilas</a>
+                    <a href="#Listas ">Listas Sencillas</a>
+                    
+                </nav>                           
       </nav>
+    </div>
       <!--Menú-->
 
       <!--Content-->
@@ -33,7 +37,7 @@
             <!---->
             <div class="row" ></div> 
             <!--Sección de inicio-->
-            <section class="container" id="inicio" >
+            <section class="container" id="Inicio" >
                 <h2 class="subtitulo">¿Qué es una estructura de datos?</h2>
                 <div class="center">
                     <img src="Img-datos/estructuradedatos.png" class="img-center" alt="" id= "imgEstructura" >  
@@ -56,13 +60,17 @@
             </section>   
             <!--Sección de array-->
             <!--Sección de Listas-->
+<<<<<<< Updated upstream
             <section class="container" id="Listas" >
+=======
+            <section class="container" id="Listas " >
+>>>>>>> Stashed changes
                 <h2 class="subtitulo">Listas Simplemente Enlazada</h2>
                 <p>Las listas simplemente enlazadas son estructuras dinámicas compuestas por nodos, los cuales poseen dos atributos: el dato que almacena el nodo y un enlace al siguiente nodo de la lista.</p>
             </section>   
             <!--Sección de Listas-->
             <!--Sección de pilas-->
-            <section class="container" id="pilas" >
+            <section class="container" id="Pilas" >
                 <h2 class="subtitulo">Pilas</h2>
                 <div class="center">
                     <img src="Img-datos/Pilas.png" class="img-center" alt="" id= "imgPilas" height="300px" width="200px">                      
@@ -113,5 +121,7 @@
 
 
 </body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    <script src="javascript/menu.js"></script>
+
 </html>
