@@ -15,15 +15,19 @@
     <!--Menú-->
     <div class="header">
         <nav class="navbar navbar-expand-lg navbar-collapse bg-secondary">
-            <div class="container">
-                <a class="navbar-brand" href="#"><img src="img-style/aprendeconupb.png" width="250" height="100" alt=""></a>
+            <div class="icon" >
+                <a class="navbar-brand" href="#"><img src="img-style/aprendeconupb.png" class="icon" width="250" height="100" alt=""></a>
+                
+            </div>   
                 <img src="hamburguesa.svg" alt="" class="hamburguesa" >
-            </div>    
-                <nav class="menu" >
-                    <a href="#Inicio">Inicio</a>
-                    <a href="#Pilas">Pilas</a>
-                    <a href="#Listas ">Listas Sencillas</a>
-                    
+                <nav class="menu" style="font-size: medium;">
+                    <a href="#Inicio">Inicio<hr></a>
+                    <a href="#Arrays">Pilas <hr></a>
+                    <a href="#Listas ">Listas <hr></a>
+                    <a href="#Pilas ">Pilas <hr></a>
+                    <a href="#Colas ">Colas <hr></a>
+                    <a href="#Arboles Binarios">Arboles Binarios<hr></a>
+                    <a href="#Arboles n-arios">Arboles n-arios<hr></a>                    
                 </nav>                           
       </nav>
     </div>
@@ -40,10 +44,9 @@
             <section class="container" id="Inicio" >
                 <h2 class="subtitulo">¿Qué es una estructura de datos?</h2>
                 <div class="center">
-                    <img src="Img-datos/estructuradedatos.png" class="img-center" alt="" id= "imgEstructura" >  
-                                        
+                    <img src="Img-datos/estructuradedatos.png" class="img-center" alt="" id= "imgEstructura" >                                          
                 </div>   
-                 <p>Las estructuras de datos son una forma de organizar los datos en la computadora, de tal manera que nos permita realizar unas operaciones con ellas de forma muy eficiente.
+                 <p>Las estructuras de datos son una forma de organizar los datos en la computadora, de tal manera que nos permita realizar unas operaciones con ellas de forma  muy eficiente.
                     Es decir, igual que un array introducimos un dato y eso es prácticamente inmediato, no siempre lo es, según qué estructuras de datos y qué operaciones.
                     Depende que algoritmo queramos ejecutar, habrá veces que sea mejor utilizar una estructura de datos u otra estructura que nos permita más velocidad.
                     Por este motivo es interesante conocer algo más que simplemente los arrays o los hashmaps que casi todo el mundo conoce.
@@ -54,17 +57,14 @@
             <section class="container" id="Arrays" >
                 <h2 class="subtitulo">Arrays</h2>
                 <div class="center">
-                    <img src="Img-datos/arrays.png" class="img-center" alt="" id= "imgArrays" height="280px" width="300px">                                       
+                    <img src="Img-datos/arrays.png" class="img-center" alt="" id= "imgArrays" height="280px" width="300px" >                                       
                 </div>   
                 <p>Los  arrays, arreglos o vectores son estructuras que almacenan elementos uno al lado del otro. Tienen ciertas características que dependen del lenguaje de programación utilizado, pero las más comunes son: tienen un tamaño fijo y solo aceptan un mismo tipo de dato; aunque existen excepciones como el caso de JavaScript. Los arreglos pueden ser unidimensiomales, bidimensionales, tridimensionales, etc.</p>
             </section>   
             <!--Sección de array-->
-            <!--Sección de Listas-->
-<<<<<<< Updated upstream
-            <section class="container" id="Listas" >
-=======
+            <!--Sección de Listas-->            
             <section class="container" id="Listas " >
->>>>>>> Stashed changes
+
                 <h2 class="subtitulo">Listas Simplemente Enlazada</h2>
                 <p>Las listas simplemente enlazadas son estructuras dinámicas compuestas por nodos, los cuales poseen dos atributos: el dato que almacena el nodo y un enlace al siguiente nodo de la lista.</p>
             </section>   
@@ -121,7 +121,7 @@
 
 
 </body>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+
     <script src="javascript/menu.js"></script>
 
 </html>
