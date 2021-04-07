@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link href="/prism.css" rel="stylesheet" />
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,13 +12,67 @@
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
-    <div class="container" style="background-color:rgb(231, 231, 231) ">
+    <div class="container" >
         
         <h1>Hola</h1>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio cupiditate vel cum, animi ut exercitationem omnis enim quibusdam qui aliquid! Laboriosam illum voluptatem corporis, consequuntur porro eaque dicta harum ipsam facilis consequatur doloribus tenetur temporibus blanditiis rerum. Voluptate, dolorem. Sunt fugiat, ab possimus adipisci necessitatibus asperiores consectetur aliquid corporis a?
         </p>
+        <pre>
+            <code class="language-css" >
+                import java.util.Iterator;
+                import static java.lang.System.*;
+
+
+                public class List implements ListInterface, Iterable<ListNode> {
+                    private ListNode inode;
+                    private int size;
+
+                    public ListNode head;
+                    public ListNode tail;
+
+                    /**
+                    * List
+                    */
+                    public List() {
+                        clear();
+                    }
+
+                    /*
+                    ok
+                    */
+                    public List(Object object) {
+                        add(object);
+                    }
+
+                    /*
+                    ok
+                    */
+                    @Override
+                    public boolean isEmpty() {
+                        return head == null;
+                    }
+
+                    /*
+                    ok
+                    */
+                    @Override
+                    public int getSize() {
+                        return size;
+                    }
+
+                    /*
+                    ok
+                    */
+                    @Override
+                    public void clear() {
+                        head = null;
+                        tail = null;
+                        size = 0;
+                    }
+            </code>
+        </pre>
         <a href="/downloads/hi.txt" download="codearray" >Descargar código</a> 
     </div>
-    
+    <script src="/javascript/prism.js"></script> 
 </body>
 </html>
