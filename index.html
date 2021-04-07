@@ -132,6 +132,64 @@
                 </div>  
                 <p>Partimos del significado de las listas simplemente 
                 enlazadas solo que en este caso se le agrega un enlace al elemento posicionado antes del nodo.</p>
+                <pre>
+                    <code class="language-css">
+                    public interface ListInterface {
+                        /*
+                        essential operations
+                        */
+                        public boolean isEmpty();
+
+                        public int getSize();
+
+                        public void clear();
+
+                        public Object getHead();
+
+                        public Object getTail();
+
+                        public ListNodeDouble search(Object object);
+
+                        public boolean add(Object object);
+
+                        public boolean insert(ListNodeDouble node, Object object);
+
+                        public boolean insert(Object ob, Object object);
+
+                        public boolean insertHead(Object object);
+
+                        public boolean insertTail(Object object);
+
+                        public boolean remove(ListNodeDouble node);
+
+                        public boolean remove(Object object);
+
+                        /*
+                        expansion operations
+                        */
+                        public boolean contains(Object object);
+
+                        public Iterator<ListNodeDouble> iterator();
+
+                        public Object[] toArray();
+
+                        public Object[] toArray(Object[] object);
+
+                        public Object getBeforeTo();
+
+                        public ListNodeDouble getBeforeTo(ListNodeDouble node); 
+
+                        public Object getNextTo();
+
+                        public Object getNextTo(ListNodeDouble node);
+
+                        public DoubleList subList(ListNodeDouble from, ListNodeDouble to);
+
+                        public DoubleList sortList();
+
+                    }
+                    </code>
+                </pre>
                 <a href="code/listade.html">Ver código</a>
             </section> 
             <hr>
@@ -143,6 +201,65 @@
                 </div>  
                 <p>Partimos del significado de las listas simplemente 
                 enlazadas solo que en este caso se le agrega un enlace al elemento posicionado antes del nodo.</p>
+                <pre>
+                    <code class="language-css">
+                        public interface ListInterface {
+    
+                            /*
+                            essential operations
+                            */
+                            public boolean isEmpty();
+                        
+                            public int getSize();
+                        
+                            public void clear();
+                        
+                            public Object getHead();
+                        
+                            public Object getTail();
+                        
+                            public ListNode search(Object object);
+                        
+                            public boolean add(Object object);
+                        
+                            public boolean insert(ListNode node, Object object);
+                        
+                            public boolean insert(Object ob, Object object);
+                        
+                            public boolean insertHead(Object object);
+                        
+                            public boolean insertTail(Object object);
+                        
+                            public boolean remove(ListNode node);
+                        
+                            public boolean remove(Object object);
+                        
+                            /*
+                            expansion operations
+                             */
+                            public boolean contains(Object object);
+                        
+                            public Iterator<ListNode> iterator();
+                        
+                            public Object[] toArray();
+                        
+                            public Object[] toArray(Object[] object);
+                        
+                            public Object getBeforeTo();
+                        
+                            public ListNode getBeforeTo(ListNode node);
+                        
+                            public Object getNextTo();
+                        
+                            public Object getNextTo(ListNode node);
+                        
+                            public CircularList subList(ListNode from, ListNode to);
+                        
+                            public CircularList sortList();
+                        }
+                        
+                    </code>
+                </pre>
                 <a href="code/circularS.html">Ver código</a>
             </section> 
             <hr>
@@ -154,6 +271,65 @@
                 </div>  
                 <p>Partimos del significado de las listas simplemente 
                 enlazadas solo que en este caso se le agrega un enlace al elemento posicionado antes del nodo.</p>
+                <pre>
+                    <code class="language-css">
+                        public interface ListInterface {
+
+                            /*
+                            essential operations
+                            */
+                            public boolean isEmpty();
+                        
+                            public int getSize();
+                        
+                            public void clear();
+                        
+                            public Object getHead();
+                        
+                            public Object getTail();
+                        
+                            public ListNodeDouble search(Object object);
+                        
+                            public boolean add(Object object);
+                        
+                            public boolean insert(ListNodeDouble node, Object object);
+                        
+                            public boolean insert(Object ob, Object object);
+                        
+                            public boolean insertHead(Object object);
+                        
+                            public boolean insertTail(Object object);
+                        
+                            public boolean remove(ListNodeDouble node);
+                        
+                            public boolean remove(Object object);
+                        
+                            /*
+                            expansion operations
+                             */
+                            public boolean contains(Object object);
+                        
+                            public Iterator<ListNodeDouble> iterator();
+                        
+                            public Object[] toArray();
+                        
+                            public Object[] toArray(Object[] object);
+                        
+                            public Object getBeforeTo();
+                        
+                            public ListNodeDouble getBeforeTo(ListNodeDouble node); 
+                        
+                            public Object getNextTo();
+                        
+                            public Object getNextTo(ListNodeDouble node);
+                        
+                            public DoubleCircularList subList(ListNodeDouble from, ListNodeDouble to);
+                        
+                            public DoubleCircularList sortList();
+                        
+                        }
+                    </code>
+                </pre>
                 <a href="code/circularD.html">Ver código</a>
             </section> 
             <hr>
@@ -165,6 +341,33 @@
                     <img src="Img-datos/Pilas.png" class="img-center" alt="" id= "imgPilas" height="300px" width="200px">                      
                 </div>   
                 <p>Una pila, es una lista ordenada o estructura de datos en la que el modo de acceso a sus elementos es de tipo LIFO (del inglés Last In First Out, último en entrar, primero en salir) que permite almacenar y recuperar datos. Esta estructura se aplica en multitud de ocasiones en el área de informática debido a su simplicidad y ordenación implícita de la propia estructura. Para el manejo de los datos se cuenta con dos operaciones básicas: apilar (push), que coloca un objeto en la pila, y su operación inversa, retirar (o desapilar, pop), que retira el último elemento apilado. En cada momento sólo se tiene acceso a la parte superior de la pila, es decir, al último objeto apilado (denominado TOS, Top of Stack en inglés)</p>
+                <pre>
+                    <code class="language-css">
+                        public interface StackInterface {
+
+                            public void clear();
+                        
+                            public boolean isEmpty();
+                        
+                            public Object peek();
+                        
+                            public Object pop();
+                        
+                            public boolean push(Object object);
+                        
+                            public int size();
+                        
+                            public boolean search(Object object);
+                        
+                            public void sort();
+                        
+                            public void reverse();
+                        
+                            public String toString();
+                        
+                        }
+                    </code>
+                </pre>
                 <a href="code/pila.html">Ver código</a>
             </section>  
             <hr> 
@@ -176,6 +379,31 @@
                     <img src="Img-datos/Colas.png" class="img-center" alt="" id= "imgColas" height="250px" width="50">                      
                 </div>   
                     <p>Una cola es un grupo ordenado de elementos del mismo tipo, en la cual dichos elementos se añaden por un extremo (Final) y se quitan por el otro extremo (Frente). Esto significa que los elementos se sacan en el mismo orden en el que fueron insertados o introducidos en la cola, siendo por ello considerada como una estructura de datos FIFO (First In First Out), es decir, que el primer elemento en entrar es el primer elemento en salir.</p>
+                    <pre>
+                        <code class="language-css">
+                            public interface QueueInterface {
+    
+                                public void clear();
+                                
+                                public boolean isEmpty();
+                                
+                                public Object extract();
+                                
+                                public boolean insert(Object object);
+                                
+                                public int size();
+                                
+                                public boolean search(Object object);
+                                
+                                public void sort();
+                                
+                                public void reverse();
+                                
+                                public String toString();
+                                
+                            }
+                        </code>
+                    </pre>
                     <a href="code/colas.html">Ver código</a>
             </section>   
             <hr>
