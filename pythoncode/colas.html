@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="/prism.css" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista Circular Doblemente Enlzada</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/yeti/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="estilos.css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="container">
+        
+        <h1>Colas basada en listas - Python</h1>
+        <h3>QueueInterface</h3>
+        <pre>
+            <code class="language-css" >
+                from abc import ABCMeta, abstractmethod
+
+                class QueueInterface(metaclass=ABCMeta):
+                    @abstractmethod
+                    def isEmpty(self):
+                        pass
+                    
+                    @abstractmethod
+                    def size(self):
+                        pass
+                    
+                    @abstractmethod
+                    def clear(self):
+                        pass
+                    
+                    @abstractmethod
+                    def search(self,Object):
+                        pass
+                    
+                    @abstractmethod
+                    def extract(self):
+                        pass
+                        
+                    @abstractmethod
+                    def insert(self,Object):
+                        pass
+                
+                
+                    @abstractmethod
+                    def reverse(self):
+                        pass
+                
+                    @abstractmethod
+                    def sort(self):
+                        pass
+            </code>
+        </pre>
+
+        <pre>
+            <code class="language-css" >
+                # -*- coding: utf-8 -*-
+
+
+                from ListNode import ListNode
+                from QueueInterface import QueueInterface
+                
+                class ListQueue(QueueInterface):
+                    Size = 0
+                    top = ListNode()
+                    bot = ListNode()
+                    
+                    def __init__(self):
+                        self.clear()
+                        
+                    def clear(self):
+                        self.bot = None
+                        self.top = None
+                        self.Size = 0
+                    
+                    def isEmpty(self):
+                        return self.top == None
+                    
+                    def extract(self):
+                        try:
+                            if self.isEmpty() == False :
+                                a = self.top.getObject()
+                                self.top = self.top.Next
+                                self.size -= 1
+                                return a
+                            else:
+                                return None
+                                
+                        except:
+                            return None
+                        
+                        
+                    def insert(self,Object):
+                        try:
+                            nodoInsertado = ListNode.NodeObject(Object)
+                            if self.isEmpty() == False :
+                                self.bot.Next = nodoInsertado
+                            else:
+                                self.top = nodoInsertado
+                            
+                            self.bot = nodoInsertado
+                            self.size -= 1
+                            return True
+                        except:
+                            return False
+                        
+                    
+                    def size(self):
+                        return self.Size
+                    
+                    def sort(self):
+                        if(self.isEmpty() == False):
+                            arr = list()
+                            nodo = self.top
+                            while nodo != None:
+                                arr.append(nodo.getObject())
+                                nodo = nodo.Next
+                            self.top = None
+                            for i in range(self.size()):
+                                for j in range(self.size()-1):
+                                    if arr[j] > arr[j+1]:
+                                        temp = arr[j]
+                                        arr[j] = arr[j+1]
+                                        arr[j+1] = temp
+                            for elemento in arr:
+                                self.insert(elemento)
+                        else:
+                            return None
+                    
+                    def search(self, Object) :
+                        a = self.top
+                        while a != null :
+                            if a.getObject()  == Object :
+                                return true
+                            
+                            a = a.Next
+                        
+                        return False
+                    
+                    
+                    def reverse(self): 
+                        a = ListQueue()
+                        b = self.top
+                        while b != None :
+                            a.insert(b.getObject())
+                            b = b.Next
+                        
+                        self.top = a.top
+                        a = None
+                
+                    def __str__(self):
+                        return str(self.top) 
+            </code>
+        </pre>
+
+        
+        <a href="/downloads/python/Queue - Python.rar" download="Queue - Python.rar" >Descargar código</a> 
+    </div>
+    <script src="/javascript/prism.js"></script>
+</body>
+</html>
