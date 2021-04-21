@@ -96,11 +96,11 @@
 
 }
 table {
-  width:50%;
+  width:80%;
   border: 1px solid #000;
 }
 th, td {
-  width: 40%;
+  width: 0%;
   text-align: left;
   vertical-align: top;
   border: 1px solid black;
