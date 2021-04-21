@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="/prism.css" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista Circular Doblemente Enlzada</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/yeti/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="estilos.css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="container">
+        
+        <h1>ListNode - Python</h1>
+        </p>
+        <pre>
+            <code class="language-css" >
+                # -*- coding: utf-8 -*-
+
+                class ListNode:
+                    Object = None
+                    Next = None
+                    Previous = None
+                    
+                    def __init__(self):
+                        self.Object = None
+                        self.Next = None
+                        self.Previous = None
+                        
+                    @classmethod
+                    def NodeObject(cls,objecto):
+                        Nodo = cls.__new__(cls)
+                        Nodo.Object = objecto
+                        Nodo.Next = None
+                        Nodo.Previous = None
+                        return Nodo
+                        
+                    @classmethod
+                    def NodeObjectNext(cls,objecto, nxt):
+                        Nodo = cls.__new__(cls)
+                        Nodo.Object = objecto
+                        Nodo.Next = nxt
+                        return Nodo
+                    
+                    @classmethod
+                    def NodeObjNxtPre(cls,objecto, nxt, pre):
+                        Nodo = cls.__new__(cls)
+                        Nodo.Object = objecto
+                        Nodo.Next = nxt
+                        Nodo.Previous = pre
+                        return Nodo
+                    
+                    def getObject(self):
+                        return self.Object
+                    
+                    def setObject(self,objecto):
+                        self.Object = objecto
+                        
+                    def __str__(self):
+                        if self.Previous == None :
+                            return "ListNode{object=" + str(self.Object) + ", next=" + str(self.Next) + "}"
+                        else:
+                            try:
+                                return "ListNode{object=" + str(self.Object) + ", next=" + str(self.Next.getObject()) +", Previous =" +  str(self.Previous.getObject()) +  "}"
+                            except:
+                                return "ListNode{object=" + str(self.Object) + ", next=" + "None" +", Previous =" +  str(self.Previous.getObject()) +  "}"
+                    
+                    def isEquals(self, objecto):
+                        if(type(ListNode()) == type(objecto)):
+                            return str(self).__eq__(str(objecto))
+                        else:
+                            return self.Object.__eq__(objecto)
+                        return False
+                    
+                
+            </code>
+        </pre>
+
+        
+        <a href="/downloads/python/ListNode.py" download="ListNode.py" >Descargar código</a> 
+    </div>
+    <script src="/javascript/prism.js"></script>
+</body>
+</html>

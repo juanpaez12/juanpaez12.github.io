@@ -14,28 +14,24 @@
 <body>
     <div class="container">
         
-        <h1>Lista Doblemente Enlazada - Python</h1>
+        <h1>Lista Circular Simplemente Enlazada - Python</h1>
         </p>
         <pre>
             <code class="language-css" >
-                # -*- coding: utf-8 -*-
-
                 from ListInterface import ListInterface
                 from ListNode import ListNode
                 import numpy as np
                 
-                class DoubleList(ListInterface):
-                    
+                class CircularList(ListInterface):
                     inode = ListNode()
                     size = 0
                     head = ListNode()
                     tail = ListNode()
                     
-                    
                     def __init__(self):
                         self.clear()
-                        
-                    def DoubleList(self,Object):
+                    
+                    def CircularList(self,Object):
                         self.add(Object)
                     
                     def isEmpty(self):
@@ -47,8 +43,8 @@
                     def clear(self):
                         self.head = None
                         self.tail = None
-                        self.size = None
-                    
+                        self.size = 0
+                        
                     def getHead(self):
                         return self.head
                     
@@ -70,13 +66,13 @@
                         try:
                             if type(Ob) == type(ListNode()) :
                                 
-                                if (Ob.Next == None) :
+                                if (Ob.Next == self.head) :
                                     self.add(Object)
                                     
                                 else:
                                     self.size += 1
-                                    newNode = ListNode.NodeObjNxtPre(Object,Ob.Next,Ob)
-                                    newNode.Next.Previous = newNode
+                                    newNode = ListNode.NodeObject(Object)
+                                    newNode.Next = Ob.Next
                                     Ob.Next = newNode
                                 return True
                             
@@ -94,32 +90,33 @@
                         except:
                             return False
                     
-                        
-                    def insertHead(self, Object):
-                        try:
-                            if self.isEmpty():
+                    def insertHead(self, Object) :
+                        try :
+                            if self.isEmpty() :
                                 self.head = ListNode.NodeObject(Object)
                                 self.tail = self.head
-                            else:
-                                
-                                self.head = ListNode.NodeObjNxtPre(Object, self.head, None)
-                                self.head.Next.Previous = self.head
+                                self.tail.Next = self.head
+                            else :
+                                self.head = ListNode.NodeObjectNext(Object, self.head)
+                                self.tail.Next = self.head
                             
                             self.size += 1
                             return True
                         except:
                             return False
                     
-                    def insertTail(self, Object):
-                        try:
-                            if self.isEmpty():
+                    def insertTail(self,Object) :
+                        try :
+                            if self.isEmpty() : 
                                 self.head = ListNode.NodeObject(Object)
                                 self.tail = self.head
-                            else:
-                                self.tail.Next = ListNode.NodeObjNxtPre(Object, None, self.tail)
+                                self.tail.Next = self.head
+                            else :
+                                self.tail.Next = ListNode.NodeObject(Object)
                                 self.tail = self.tail.Next
+                                self.tail.Next = self.head
                             
-                            self.size += 1
+                            self.size += 1;
                             return True
                         except:
                             return False
@@ -129,26 +126,27 @@
                             if type(ListNode()) == type(Object):
                                 self.remove(Object.getObject())
                             else:
-                                if Object != None and self.isEmpty() != True :
-                                    eliminado = False
-                                    node = self.head
-                                    while eliminado == False and node != None :
-                                        if node.getObject() == Object :
-                                            self.size -= 1
-                                            eliminado = True
-                                            if node.Previous == None :
-                                                self.head = self.head.Next
-                                                self.head.Previous = None
-                                            else:
-                                                node.Previous.Next = node.Next
-                                        node = node.Next
-                                    return eliminado
-                                else:
-                                    return False
+                                a = self.head
+                                anterior = self.tail
+                                t = 0
+                                eliminado = False
+                                while t < self.size and eliminado == False :
+                                    if a.getObject() == Object:
+                                        self.size -= 1
+                                        eliminado = True
+                                        if anterior == self.tail :
+                                            self.head = a.Next
+                                            self.tail.Next = self.head
+                                        else:
+                                            anterior.Next = a.Next
+                                            
+                                    anterior = a
+                                    a = a.Next
+                                    t += 1
+                                return eliminado
                         except:
                             return False
                         
-                    
                     def contains(self, Object):
                         return self.search(Object) != None
                     
@@ -165,34 +163,42 @@
                                 a = a.Next
                             return o
                     
-                    def getBeforeTo(self):
+                    def getBeforeTo(self) :
                         try:
-                            return self.head.Previous.getObject()
+                            return self.tail.getObject()
                         except:
                             return None
                     
-                    def getBeforeToNode(self, node):
-                        try:
-                            return node.Previous
-                        except:
-                            return None
-                    
-                    def getNextTo(self):
-                        return self.head.Next.getObject()
-                    
-                    def getNextToNode(self, node):
+                    def getBeforeToNode(self, node) :
                         if type(node) == type(ListNode()):
                             try:
-                                return node.Next.getObject()
+                                a = self.head
+                                p = None
+                                while a != node:
+                                    p = a
+                                    a = a.Next
+                                return p
                             except:
                                 return None
                         else:
                             return None
                     
+                    def getNextTo(self):
+                        try:
+                            return self.head.Next.getObject()
+                        except:
+                            return None
+                    
+                    def getNextToNode(self,node):
+                        try:
+                            return node.Next.getObject()
+                        except:
+                            return None
+                    
                     def subList(self, From, to):
                         try:
                             if self.isEmpty() == False:
-                                subLista = DoubleList()
+                                subLista = CircularList()
                                 if self.contains(From.getObject()) and self.contains(to.getObject()):
                                     while From != to:
                                         subLista.add(From.getObject())
@@ -201,7 +207,7 @@
                                 return subLista
                         except:
                             return None
-                        
+                    
                     def sortList(self):
                         if(self.isEmpty() == False):
                             arr = self.toArray()
@@ -216,7 +222,7 @@
                                 self.add(elemento)
                         else:
                             return None
-                        
+                    
                     def __iter__(self):
                         self.inode = self.head
                         return self
@@ -230,13 +236,17 @@
                             return item
                     
                     def __str__(self):
-                        node = self.head
+                        nodo = self.head
+                        s = 0
                         txt = ""
-                        while node != None :
-                            txt += "<-" + str(node.getObject()) + "->"
-                            node = node.Next
+                        while s < self.size :
+                            txt += str(nodo.getObject()) + "->"
+                            s += 1
+                            nodo = nodo.Next
+                        
+                        txt += str(self.tail.Next.getObject())
+                        
                         return txt
-
             </code>
         </pre>
 

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="/prism.css" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista Circular Doblemente Enlzada</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/yeti/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="estilos.css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="container">
+        
+        <h1>Lista Simplemente Enlazada - Python</h1>
+        </p>
+        <pre>
+            <code class="language-css" >
+                from ListInterface import ListInterface
+                from ListNode import ListNode
+                import numpy as np
+                
+                class List(ListInterface):
+                    inode = ListNode()
+                    size = 0
+                    head = ListNode()
+                    tail = ListNode()
+                    
+                    def __init__(self):
+                        self.clear()
+                
+                    @classmethod
+                    def List(cls,objecto):
+                        cls.add(objecto)
+                    
+                    def isEmpty(self):
+                        return self.head == None
+                    
+                    def getSize(self):
+                        return self.size
+                    
+                    def clear(self):
+                        self.head = None
+                        self.tail = None
+                        self.size = 0
+                    
+                    def getHead(self):
+                        return self.head
+                    
+                    def getTail(self):
+                        return self.tail
+                    
+                    def search(self,Object):
+                        aux = self.head
+                        while aux != None:
+                            if str(Object) == str(aux.getObject()):
+                                return aux
+                            aux = aux.Next
+                        return None
+                    
+                    def add(self,Object):
+                        return self.insertTail(Object)
+                    
+                    def insert(self, Ob, Object):
+                        try:
+                            if type(Ob) == type(ListNode()) :
+                                
+                                if (Ob.Next == None) :
+                                    self.add(Object)
+                                    
+                                else:
+                                    self.size += 1
+                                    newNode = ListNode.NodeObject(Object)
+                                    newNode.Next = Ob.Next
+                                    Ob.Next = newNode
+                                return True
+                            
+                            else:
+                                if Ob != None :
+                                     node = self.search(Ob)
+                                     if node != None :
+                                         return self.insert(node, Object)
+                                     else: 
+                                         return False
+                                else:
+                                    return False
+                        except:
+                            return False
+                    
+                    def insertHead(self, Object):
+                        try:
+                            if self.isEmpty():
+                                self.head = ListNode.NodeObject(Object)
+                                self.tail = self.head
+                            else:
+                                self.head = ListNode.NodeObjectNext(Object, self.head)
+                            
+                            self.size += 1
+                            return True
+                        except:
+                            return False
+                    
+                    def insertTail(self, Object):
+                        try:
+                            if self.isEmpty():
+                                self.head = ListNode.NodeObject(Object)
+                                self.tail = self.head
+                            else:
+                                self.tail.Next = ListNode.NodeObject(Object)
+                                self.tail = self.tail.Next
+                            
+                            self.size += 1
+                            return True
+                        except:
+                            return False
+                    
+                    def remove(self, Object):
+                        try:
+                            if type(ListNode()) == type(Object):
+                                self.remove(Object.getObject())
+                            else:
+                                a = self.head
+                                t = None
+                                eliminado = False
+                                while a != None and eliminado == False :
+                                    if a.getObject() == Object:
+                                        self.size -= 1
+                                        if t == None :
+                                            self.head = a.Next
+                                            a.Next = None
+                                        else:
+                                            t.Next = a.Next
+                                            a.Next = None
+                                            eliminado = True
+                                    t = a
+                                    a = a.Next
+                                return eliminado
+                        except:
+                            return False
+                    
+                    def contains(self, Object):
+                        return self.search(Object) != None
+                    
+                    def toArray(self):
+                        if self.isEmpty():
+                            return np.zeros(0)
+                        else:
+                            a = self.head
+                            o = np.zeros(self.size)
+                            for i in range(0,self.size):
+                                if(a == None):
+                                    break;
+                                o[i] = a.getObject()
+                                a = a.Next
+                            return o
+                    
+                    def getBeforeTo(self):
+                        return None
+                    
+                    def getBeforeToNode(self, node):
+                        if type(node) == type(ListNode()):
+                            try:
+                                a = self.head
+                                p = None
+                                while a != node:
+                                    p = a
+                                    a = a.Next
+                                return p
+                            except:
+                                return None
+                        else:
+                            return None
+                    
+                    def getNextTo(self):
+                        return self.head.Next.getObject()
+                    
+                    def getNextToNode(self, node):
+                        if type(node) == type(ListNode()):
+                            try:
+                                return node.Next.getObject()
+                            except:
+                                return None
+                        else:
+                            return None
+                    
+                    def subList(self, From, to):
+                        try:
+                            if self.isEmpty() == False:
+                                subLista = List()
+                                if self.contains(From.getObject()) and self.contains(to.getObject()):
+                                    while From != to:
+                                        subLista.add(From.getObject())
+                                        From = From.Next
+                                    subLista.add(From.getObject())
+                                return subLista
+                        except:
+                            return None
+                      
+                    def sortList(self):
+                        if(self.isEmpty() == False):
+                            arr = self.toArray()
+                            self.head = None
+                            for i in range(self.getSize()):
+                                for j in range(self.getSize()-1):
+                                    if arr[j] > arr[j+1]:
+                                        temp = arr[j]
+                                        arr[j] = arr[j+1]
+                                        arr[j+1] = temp
+                            for elemento in arr:
+                                self.add(elemento)
+                        else:
+                            return None
+                        
+                    def __iter__(self):
+                        self.inode = self.head
+                        return self
+                    
+                    def __next__(self):
+                        if self.inode == None:
+                            raise StopIteration
+                        else:
+                            item = self.inode.getObject()
+                            self.inode = self.inode.Next
+                            return item
+                            
+                    def __str__(self):
+                        return str(self.head)                
+            </code>
+        </pre>
+
+        
+        <a href="/downloads/hi.txt" download="codearray" >Descargar código</a> 
+    </div>
+    <script src="/javascript/prism.js"></script>
+</body>
+</html>
