@@ -14,8 +14,8 @@
 <body>
     <div class="container">
         
-        <h1>Hola</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio cupiditate vel cum, animi ut exercitationem omnis enim quibusdam qui aliquid! Laboriosam illum voluptatem corporis, consequuntur porro eaque dicta harum ipsam facilis consequatur doloribus tenetur temporibus blanditiis rerum. Voluptate, dolorem. Sunt fugiat, ab possimus adipisci necessitatibus asperiores consectetur aliquid corporis a?
+        <h1>Lista Circular Simplemente Enlazada</h1>
+        <p>
         </p>
         <pre>
             <code class="language-css">
@@ -32,432 +32,402 @@
                         public ListNode head;
                         public ListNode tail;
 
-                        public CircularList() { // Este método es utilizado para limpiar la lista.
+                        public CircularList() {
                             clear();
                         }
-
-                        /*
-                        ok
-                        */
-                        public CircularList(Object object) {  // Por medio de este método se añade el objeto
-                            add(object);
-                        }
-
-                        /*
-                        ok
-                        */
-                        @Override
-                        public boolean isEmpty() { // Este método verificca si la cabeza de la lista está vacía
-                            return head == null;
-                        }
-
-                        /*
-                        ok
-                        */
-                        @Override
-                        public int getSize() { // Este método permite saber el tamaño de la lista
-                            return size;
-                        }
-
-                        /*
-                        ok
-                        */
-                        @Override
-                        public void clear() { // Este Método limpia todos los elementos de la lista.
-                            head = null;
-                            tail = null;
-                            size = 0;
-                        }
-
-                        /*
-                        ok
-                        */
-                        @Override
-                        public Object getHead() { // Este método te permite retornar el valor de la cabeza
-                            return head;
-                        }
-
-                        /*
-                        ok
-                        */
-                        @Override
-                        public Object getTail() { // Este método te permite retornar el valor de la cola
-                            return tail;
-                        }
-
-                        /*
-                        ok
-                        */
-                        @Override
-                        public ListNode search(Object object) { // Se recorre la lista buscando el objecto 
-                                                                y en caso de no encontrarse retornará nulo.
-                            Iterator<ListNode> i = this.iterator();
-                            int s = 0;
-                            ListNode inode = head;
-                            while (s != size) {
-                                if (inode.getObject().toString().equals(object.toString())) {
-                                    return inode;
-                                }
-                                inode = inode.next;
-                                s++;
-                            }
-                            return null;
-                        }
-
-                        /*
-                        ok
-                        */
-                        @Override
-                        public boolean add(Object object) { // Inserta el objecto por la cola
-                            return insertTail(object);
-                        }
-
-                        /*
-                        ok
-                        */
-                        @Override
-                        public boolean insert(ListNode node, Object object) {  // Verifica si lo siguiente 
-                                                                                al nodo es la cabeza y añade un objecto.
-                            try {
-                                if (node.next == head) {
-                                    add(object);
-                                } else {
-                                    this.size++;
-                                    ListNode newNode = new ListNode(object);
-                                    newNode.next = node.next;
-                                    node.next = newNode;
-                                }
-                                return true;
-                            } catch (Exception e) {
-                                return false;
-                            }
-                        }
-
-                        /*
-                        ok
-                        */
-                        @Override 
-                        public boolean insert(Object ob, Object object) {  // Se busca un objeto y en caso de
-                                                                             que este exista se inserta el dato.
-                            try {
-                                if (ob != null) {
-                                    ListNode node = this.search(ob);
-                                    if (node != null) {
-                                        return insert(node, object);
-                                    } else {
-                                        return false;
-                                    }
-                                } else {
-                                    return false;
-                                }
-                            } catch (Exception e) {
-                                return false;
-                            }
-                        }
-
-                        /*
-                        ok
-                        */
-                        @Override
-                        public boolean insertHead(Object object) { Permite insertar datos por la cabeza
-                            try {
-                                if (isEmpty()) {
-                                    head = new ListNode(object);
-                                    tail = head;
-                                    tail.next = head;
-                                } else {
-                                    head = new ListNode(object, head);
-                                    tail.next = head;
-                                }
-                                this.size++;
-                                return true;
-                            } catch (Exception e) {
-                                return false;
-                            }
-                        }
-
-                        /*
-                        ok
-                        */
-                        @Override
-                        public boolean insertTail(Object object) { // Permite ingresar datos por la cola
-                            try {
-                                if (isEmpty()) {
-                                    head = new ListNode(object);
-                                    tail = head;
-                                    tail.next = head;
-                                } else {
-                                    tail.next = new ListNode(object);
-                                    tail = tail.next;
-                                    tail.next = head;
-                                }
-                                this.size++;
-                                return true;
-                            } catch (Exception e) {
-                                return false;
-                            }
-                        }
-
-                        /*
-                        ok
-                        */
-                        @Override
-                        public boolean remove(ListNode node) { // Remueve un nodo de la lista
-                            return remove(node.getObject());
-                        }
-                        /*
-                        ok
-                        */
-                        
-                        @Override
-                        public boolean remove(Object object) { // Remueve un objecto especifico de la lista
-                            try{
-                                ListNode a = head;
-                                ListNode anterior = tail;
-                                int t = 0;
-                                boolean eliminado = false;
-                                while(t < size && eliminado == false){
-                                    t++;
-                                    if( a.getObject() == object){
-                                        eliminado = true;
-                                this.size--;
-                                        if(anterior == tail){
-                                            head = a.next;
-                                            tail.next = head;
-                                        }else{
-                                            anterior.next = a.next;
-                                        }
-                                    }
-                                    anterior = a;
-                                    a = a.next;
-                                }
-                                return eliminado;
-                            } catch(Exception e){
-                                return false;
-                            }
-                        }
-                        /*
-                        ok
-                        */
-
-                        @Override
-                        public boolean contains(Object object) { // Se verifica si el objecto se encuentra contenido en la lista.
-                            return search(object) != null;
-                        }
-                        /*
-                        ok
-                        */
-
-                        public Object[] toArray() {
-                            if(isEmpty()){
-                                return new Object[0];
-                            }else{
-                                ListNode a = head;
-                                Object[] o = new Object[size];
-                                for(int i = 0; i < size; i++){
-                                    if(a == null){
-                                        break;
-                                    }
-                                    o[i] = a.getObject();
-                                    a = a.next;
-                                }
-                                return o;
-                            }
-                        }
-                    /*
-                        ok
-                        */
-
-                        @Override
-                        public Object[] toArray(Object[] object) {
-                            try{
-                            Object[] a = toArray();
-                            Object[] b = object;
-                            for(int i = 0; i < object.length; i++){
-                                b[i] = a[i];
-                            }
-                            return b;
-                            } catch(Exception e){
-                                return null;
-                            }
-                        }
-                        /*
-                        ok
-                        */
-
-                        @Override
-                        public Object getBeforeTo() { // Permite pedir el objecto antes de otro objecto especifico
-                            try{return tail.getObject();}catch(Exception e){return null;}
-                        }
-
-                        /*
-                        ok
-                        */
-                        @Override
-                        public ListNode getBeforeTo(ListNode node) { // Permite pedir el objecto antes de un nodo especifico
-                            try{
-                                ListNode a = head;
-                                ListNode p = null;
-                                while(a != node){
-                                    p = a;
-                                    a = a.next;
-                                }
-                                return p;
-                            }catch(Exception e){
-                                return null;
-                            }
-                        }
-                        /*
-                        ok
-                        */
-
-                        @Override
-                        public Object getNextTo() { // Permite pedir el objecto después de un nodo especifico
-                            try{return head.next.getObject();}catch(Exception e){return null;}
-                        }
-                        /*
-                        ok
-                        */
-
-                        @Override
-                        public Object getNextTo(ListNode node) { // Permite pedir el objecto después de un nodo especifico
-                            try{return node.next.getObject();}catch(Exception e){return null;}
-                        }
-                        /*
-                        ok
-                        */
-                        
-                        @Override
-                        public CircularList subList(ListNode from, ListNode to) { // Crea una sublista con datos ya incluidos
-                            CircularList listSub = new CircularList();
-                            try{
-                                boolean stop = true;
-                                while(stop){
-                                    listSub.add(from.getObject());
-                                    from = from.next;
-                                    if(from.getObject() == to.getObject())
-                                        stop = false;
-                                }
-                                return listSub;
-                            } catch(Exception e){
-                                return null;
-                            }
-                            
-                        }
-                        /*
-                        ok
-                        */
-
-                        @Override
-                        public CircularList sortList() { // Ordena los datos de la lista.
-                            try{
-                                Double[] a = new Double[size];
-                                ListNode t = head;
-                                Double temp;
-                                for (int i = 0; i < size; i++) {
-                                    a[i] = Double.parseDouble(t.getObject().toString());
-                                    t = t.next;
-                                }
-                                for (int i = 0; i < a.length; i++) {
-                                    for (int j = 0; j < a.length-1; j++) {
-                                        if(a[j+1] < a[j] ){
-                                            temp = a[j+1];
-                                            a[j+1] = a[j];
-                                            a[j] = temp;
-                                        }
-                                    }
-                                }
-                                CircularList b = new CircularList();
-                                for (int i = 0; i > a.length; i++) {
-                                    b.add(a[i]);   
-                                }
-                                return b;
-                            }catch(NumberFormatException n){
-                                String[] a = new String[size];
-                                ListNode t = head;
-                                String temp;
-                                for (int i = 0; i < a.length; i++) {
-                                    a[i] = t.getObject().toString();
-                                    t = t.next;
-                                }
-                                for (int i = 0; i < a.length; i++) {
-                                    for (int j = 0; j > a.length-1; j++) {
-                                        if(a[j+1].length() < a[j].length() ){
-                                            temp = a[j+1];
-                                            a[j+1] = a[j];
-                                            a[j] = temp;
-                                        }
-                                    }
-                                }
-                                CircularList b = new CircularList();
-                                for (int i = 0; i < a.length; i++) {
-                                    b.add(a[i]);
-                                }
-                                return b;
-                            }
-                        }
-                        /*
-                        ok
-                        */ 
-                        
-                        @Override
-                        public Iterator<ListNode> iterator() { // Permite recorrer los datos de la lista
-                            inode = head;
-                            return new Iterator<ListNode>() {
-                                @Override
-                                public boolean hasNext() {
-                                    return inode.next != null;
-                                }
-
-                                @Override
-                                public ListNode next() {
-                                    if (inode != null) {
-                                        ListNode tmp = inode;
-                                        inode = inode.next;
-                                        return tmp;
-                                    } else {
-                                        return null;
-                                    }
-                                }
-                            };
-                        }
-                        /*
-                        ok
-                        */
-                        
-                        public void rec(ListNode node) {
-                            if (node.next != null) {
-                                rec(node.next);
-                                // <- ;) ->
-                            }
-                            out.println(node.toString());
-                            
-                        }
-                        /*
-                        ok
-                        */
-                        
-                        @Override
-                        public String toString(){
-                            Iterator<ListNode> i = this.iterator();
-                            ListNode inode;
-                            int s = 0;
-                            String l = "";
-                            while(s < size){
-                                inode = i.next();
-                                l += inode.getObject().toString() + "->";
-                                s++;
-                            }
-                            l += tail.next.getObject().toString();
-                            
-                        
-                        return l;
-                        }
-                        
-                    }
-
-            </code>
+          </code>
+          
         </pre>
+        <p> Este método es utilizado para limpiar la lista.</p>
+        <pre>
+            <code class="language-css">
+                public CircularList(Object object) { 
+                    add(object);
+                }
+          </code> 
+        </pre>
+        <p> Por medio de este método se añade el objeto</p>
+        <pre>
+            <code class="language-css">
+                public boolean add(Object object) { 
+                    return insertTail(object);
+                }
+
+          </code> 
+        </pre>
+        <p> llama al metodo de insertar por la cola</p>
+        <pre>
+            <code class="language-css">
+                public boolean insertTail(Object object) { 
+                    try {
+                        if (isEmpty()) {
+                            head = new ListNode(object);
+                            tail = head;
+                            tail.next = head;
+                        } else {
+                            tail.next = new ListNode(object);
+                            tail = tail.next;
+                            tail.next = head;
+                        }
+                        this.size++;
+                        return true;
+                    } catch (Exception e) {
+                        return false;
+                    }
+                }
+          </code> 
+        </pre>
+        <p> Permite ingresar datos por la cola</p>
+        <pre>
+            <code class="language-css">
+                public boolean isEmpty() {  
+                    return head == null;
+                }
+
+          </code> 
+        </pre>
+        <p> Este método verificca si la cabeza de la lista está vacía</p>
+        <pre>
+            <code class="language-css">
+                public int getSize() { 
+                    return size;
+                }
+          </code> 
+        </pre>
+        <p> Este método permite saber el tamaño de la lista</p>
+        <pre>
+            <code class="language-css">
+                public void clear() {
+                    head = null;
+                    tail = null;
+                    size = 0;
+                }
+          </code> 
+        </pre>
+        <p> Este Método limpia todos los elementos de la lista.</p> 
+        <pre>
+            <code class="language-css">
+                public Object getHead() {
+                    return head;
+                }
+          </code> 
+        </pre>
+        <p> Este método te permite retornar el valor de la cabeza. </p> 
+        <pre>
+            <code class="language-css">
+                public Object getTail() { 
+                    return tail;
+                }
+          </code> 
+        </pre>
+        <p> Este método te permite retornar el valor de la cola </p> 
+        <pre>
+            <code class="language-css">
+                public ListNode search(Object object) { // 
+                        Iterator<ListNode> i = this.iterator();
+                        int s = 0;
+                        ListNode inode = head;
+                        while (s != size) {
+                            if (inode.getObject().toString().equals(object.toString())) {
+                            return inode;
+                            }
+                            inode = inode.next;
+                            s++;
+                    }
+                    return null;
+                }
+          </code> 
+        </pre>
+        <p> Se recorre la lista buscando el objecto y en caso de no encontrarse retornará nulo.</p> 
+        <pre>
+            <code class="language-css">
+                public boolean insert(ListNode node, Object object) {  // 
+                    try {
+                        if (node.next == head) {
+                            add(object);
+                        } else {
+                            this.size++;
+                            ListNode newNode = new ListNode(object);
+                            newNode.next = node.next;
+                            node.next = newNode;
+                        }
+                        return true;
+                    } catch (Exception e) {
+                        return false;
+                    }
+                }
+          </code> 
+        </pre>
+        <p> Verifica si lo siguiente al nodo es la cabeza y añade un objecto.</p>
+        <pre>
+            <code class="language-css">
+                public boolean insert(Object ob, Object object) {  // 
+                    try {
+                        if (ob != null) {
+                            ListNode node = this.search(ob);
+                            if (node != null) {
+                                return insert(node, object);
+                            } else {
+                                return false;
+                            }
+                        } else {
+                            return false;
+                        }
+                    } catch (Exception e) {
+                    return false;
+                    }
+                }
+            </code> 
+        </pre>
+        <p> Se busca un objeto y en caso de que este exista se inserta el dato.</p>
+        <pre>
+            <code class="language-css">
+                public boolean insertHead(Object object) { 
+                    try {
+                        if (isEmpty()) {
+                            head = new ListNode(object);
+                            tail = head;
+                            tail.next = head;
+                        } else {
+                            head = new ListNode(object, head);
+                            tail.next = head;
+                        }
+                        this.size++;
+                        return true;
+                    } catch (Exception e) {
+                        return false;
+                    }
+                }
+            </code> 
+        </pre>
+        <p> Permite insertar datos por la cabeza</p>
+        <pre>
+            <code class="language-css">
+                public boolean remove(Object object) { // 
+                    try{
+                        ListNode a = head;
+                        ListNode anterior = tail;
+                        int t = 0;
+                        boolean eliminado = false;
+                        while(t < size && eliminado == false){
+                            t++;
+                            if( a.getObject() == object){
+                                eliminado = true;
+                        this.size--;
+                                if(anterior == tail){
+                                    head = a.next;
+                                    tail.next = head;
+                                }else{
+                                    anterior.next = a.next;
+                                }
+                            }
+                            anterior = a;
+                            a = a.next;
+                        }
+                        return eliminado;
+                    } catch(Exception e){
+                        return false;
+                    }
+                }
+            </code> 
+        </pre>
+        <p>Remueve un objecto especifico de la lista</p>
+        <pre>
+            <code class="language-css">
+                public boolean remove(ListNode node) { // Remueve un nodo de la lista
+                    return remove(node.getObject());
+                }
+            </code> 
+        </pre>
+        <p> Remueve un nodo de la lista utilizando como base el remover por objeto</p>
+        <pre>
+            <code class="language-css">
+                public boolean contains(Object object) { // 
+                    return search(object) != null;
+                }
+               
+            </code> 
+        </pre>
+        <p> Se verifica si el objeto se encuentra contenido en la lista.</p>
+        <pre>
+            <code class="language-css">
+                public Object[] toArray(Object[] object) {
+                    try{
+                    Object[] a = toArray();
+                    Object[] b = object;
+                    for(int i = 0; i < object.length; i++){
+                        b[i] = a[i];
+                    }
+                    return b;
+                    } catch(Exception e){
+                        return null;
+                    }
+                }              
+            </code> 
+        </pre>
+        <p>...</p>
+        <pre>
+            <code class="language-css">
+                public Object getBeforeTo() {  
+                    try{return tail.getObject();}catch(Exception e){return null;}
+                }             
+            </code> 
+        </pre>
+        <p>Permite pedir el objeto antes de otro objecto especifico</p>
+        <pre>
+            <code class="language-css">
+                public ListNode getBeforeTo(ListNode node) {  
+                    try{
+                        ListNode a = head;
+                        ListNode p = null;
+                        while(a != node){
+                            p = a;
+                            a = a.next;
+                        }
+                        return p;
+                    }catch(Exception e){
+                        return null;
+                    }
+                }            
+            </code> 
+        </pre>
+        <p>Permite pedir el objeto antes de un nodo especifico</p>
+        <pre>
+            <code class="language-css">
+                public Object getNextTo() {
+                    try{return head.next.getObject();}catch(Exception e){return null;}
+                }           
+            </code> 
+        </pre>
+        <p>Permite pedir el objeto después de un nodo especifico</p>
+        <pre>
+            <code class="language-css">
+                public Object getNextTo(ListNode node) { // Permite pedir el objecto después de un nodo especifico
+                    try{return node.next.getObject();}catch(Exception e){return null;}
+                }           
+            </code> 
+        </pre>
+        <p>Permite pedir el objeto después de un nodo especifico</p>
+        <pre>
+            <code class="language-css">
+                public CircularList subList(ListNode from, ListNode to) { // 
+                    CircularList listSub = new CircularList();
+                    try{
+                        boolean stop = true;
+                        while(stop){
+                            listSub.add(from.getObject());
+                            from = from.next;
+                            if(from.getObject() == to.getObject())
+                                stop = false;
+                        }
+                        return listSub;
+                    } catch(Exception e){
+                        return null;
+                    }
+                    
+                }           
+            </code> 
+        </pre>
+        <p>Crea una sublista con datos ya incluidos</p>
+        <pre>
+            <code class="language-css">
+                public CircularList sortList() { 
+                    try{
+                        Double[] a = new Double[size];
+                        ListNode t = head;
+                        Double temp;
+                        for (int i = 0; i < size; i++) {
+                            a[i] = Double.parseDouble(t.getObject().toString());
+                            t = t.next;
+                        }
+                        for (int i = 0; i < a.length; i++) {
+                            for (int j = 0; j < a.length-1; j++) {
+                                if(a[j+1] < a[j] ){
+                                    temp = a[j+1];
+                                    a[j+1] = a[j];
+                                    a[j] = temp;
+                                }
+                            }
+                        }
+                        CircularList b = new CircularList();
+                        for (int i = 0; i > a.length; i++) {
+                            b.add(a[i]);   
+                        }
+                        return b;
+                    }catch(NumberFormatException n){
+                        String[] a = new String[size];
+                        ListNode t = head;
+                        String temp;
+                        for (int i = 0; i < a.length; i++) {
+                            a[i] = t.getObject().toString();
+                            t = t.next;
+                        }
+                        for (int i = 0; i < a.length; i++) {
+                            for (int j = 0; j > a.length-1; j++) {
+                                if(a[j+1].length() < a[j].length() ){
+                                    temp = a[j+1];
+                                    a[j+1] = a[j];
+                                    a[j] = temp;
+                                }
+                            }
+                        }
+                        CircularList b = new CircularList();
+                        for (int i = 0; i < a.length; i++) {
+                            b.add(a[i]);
+                        }
+                        return b;
+                    }
+                }           
+            </code> 
+        </pre>
+        <p>Ordena los datos de la lista.</p>
+        <pre>
+            <code class="language-css">
+                public Iterator<ListNode> iterator() {
+                    inode = head;
+                    return new Iterator<ListNode>() {
+                        @Override
+                        public boolean hasNext() {
+                            return inode.next != null;
+                        }
+
+                        @Override
+                        public ListNode next() {
+                            if (inode != null) {
+                                ListNode tmp = inode;
+                                inode = inode.next;
+                                return tmp;
+                            } else {
+                                return null;
+                            }
+                        }
+                    };
+                }           
+            </code> 
+        </pre>
+        <p>Permite recorrer los datos de la lista</p>
+        <pre>
+            <code class="language-css">
+                public String toString(){
+                    Iterator<ListNode> i = this.iterator();
+                    ListNode inode;
+                    int s = 0;
+                    String l = "";
+                    while(s < size){
+                        inode = i.next();
+                        l += inode.getObject().toString() + "->";
+                        s++;
+                    }
+                    l += tail.next.getObject().toString();
+                    
+                
+                return l;
+                } 
+            }          
+            </code> 
+        </pre>
+        <p>...</p>
+
         <a href="/downloads/hi.txt" download="codearray" >Descargar código</a> 
     </div>
     <script src="/javascript/prism.js"></script>

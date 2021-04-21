@@ -14,8 +14,7 @@
 <body>
     <div class="container" >
         
-        <h1>Hola</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio cupiditate vel cum, animi ut exercitationem omnis enim quibusdam qui aliquid! Laboriosam illum voluptatem corporis, consequuntur porro eaque dicta harum ipsam facilis consequatur doloribus tenetur temporibus blanditiis rerum. Voluptate, dolorem. Sunt fugiat, ab possimus adipisci necessitatibus asperiores consectetur aliquid corporis a?
+        <h1>Pila por listas</h1>
         </p>
         <pre>
             <code class="language-css" >
@@ -24,166 +23,172 @@
                     private int size;
                     private ListNode top;
                     
-                    public ListStack() { // Inicialización de los elementos.
+                    public ListStack() { // 
                         top = null;
                         size = 0;
                     }
                 
-                    @Override
-                    public void clear() { // Se limpian los datos de la pila.
-                        this.size = 0;
-                        this.top = null;
-                    }
-                    /*
-                      ok
-                    */
-                
-                    @Override
-                    public boolean isEmpty() { // Se verifica si la pila está vacía
-                        return size == 0;
-                    }
-                    /*
-                      ok
-                    */
-                
-                    @Override
-                    public Object peek() { // nos permite ver el valor del último elemento, sin necesidad de borrar el elemento.
-                        if(!isEmpty()){
-                            return this.top.getObject();
-                        }else{
-                        return null;
+                    
+            </code>
+        </pre>
+        <p>Inicialización de los elementos.</p>
+        <pre>
+            <code class="language-css" >
+                public void clear() { // 
+                            this.size = 0;
+                            this.top = null;
                         }
-                    }
-                    /*
-                      ok
-                    */
-                
-                    @Override
-                    public Object pop() {           // Extrae el objeto de la cima de la pila y lo devuelve;
-                                                    si la pila está vacía, ocurre un error.
-                        Object a = top.getObject();
-                        top = top.next;
-                        this.size--;
-                        return a;
-                    }
-                    /*
-                      ok
-                    */
-                    
-                    @Override
-                    public boolean push(Object object) { // Inserta un objeto sobre el último o cima de la pila
-                        try{
-                            ListNode nuevo = new ListNode(object);
-                            nuevo.next = top;
-                            top = nuevo;
-                            size++;
-                            return true;
-                        } catch(Exception e){
-                            return false;
-                        } 
-                    }
-                    /*
-                      ok
-                    */
-                    
-                    @Override
-                    public int size() {
-                        return size;
-                    }
-                    /*
-                      ok
-                    */
-                
-                    @Override
-                    public boolean search(Object object) { // Busca un objecto contenido en la pila
-                        ListNode a = top;
-                        while(a != null){
-                            if(a.getObject()  == object){
+            </code>
+        </pre>
+        <p>Se limpian los datos de la pila.</p>
+        <pre>
+            <code class="language-css" >
+                public boolean isEmpty() { // 
+                            return size == 0;
+                        }
+            </code>
+        </pre>
+        <p>Se verifica si la pila está vacía</p>
+        <pre>
+            <code class="language-css" >
+                public Object peek() { // 
+                            if(!isEmpty()){
+                                return this.top.getObject();
+                            }else{
+                            return null;
+                            }
+                        }
+            </code>
+        </pre>
+        <p>nos permite ver el valor del último elemento, sin necesidad de borrar el elemento.</p>
+        <pre>
+            <code class="language-css" >
+                public Object pop() {  
+                            Object a = top.getObject();
+                            top = top.next;
+                            this.size--;
+                            return a;
+                        }
+            </code>
+        </pre>
+        <p>Extrae el objeto de la cima de la pila y lo devuelve, si la pila está vacía, ocurre un error.</p>
+        <pre>
+            <code class="language-css" >
+                public boolean push(Object object) {
+                            try{
+                                ListNode nuevo = new ListNode(object);
+                                nuevo.next = top;
+                                top = nuevo;
+                                size++;
                                 return true;
-                            }
-                            a = a.next;
+                            } catch(Exception e){
+                                return false;
+                            } 
                         }
-                        return false; 
-                    }
-                
-                    @Override
-                    public void sort() { // Ordena los elementos contenidos en la pila
-                        try{
-                            Double[] a = new Double[size];
-                            ListNode t = top;
-                            Double temp;
-                            for (int i = 0; i < size; i++) {
-                                a[i] = Double.parseDouble(t.getObject().toString());
-                                t = t.next;
+            </code>
+        </pre>
+        <p>Inserta un objeto sobre el último o cima de la pila</p>
+        <pre>
+            <code class="language-css" >
+                public int size() {
+                            return size;
+                        }
+            </code>
+        </pre>
+        <p>...</p>
+        <pre>
+            <code class="language-css" >
+                public boolean search(Object object) { 
+                            ListNode a = top;
+                            while(a != null){
+                                if(a.getObject()  == object){
+                                    return true;
+                                }
+                                a = a.next;
                             }
-                            for (int i = 0; i < a.length; i++) {
-                                for (int j = 0; j < a.length-1; j++) {
-                                    if(a[j+1] < a[j] ){
-                                        temp = a[j+1];
-                                        a[j+1] = a[j];
-                                        a[j] = temp;
+                            return false; 
+                        }
+            </code>
+        </pre>
+        <p>Busca un objecto contenido en la pila</p>
+        <pre>
+            <code class="language-css" >
+                public void sort() {
+                            try{
+                                Double[] a = new Double[size];
+                                ListNode t = top;
+                                Double temp;
+                                for (int i = 0; i < size; i++) {
+                                    a[i] = Double.parseDouble(t.getObject().toString());
+                                    t = t.next;
+                                }
+                                for (int i = 0; i < a.length; i++) {
+                                    for (int j = 0; j < a.length-1; j++) {
+                                        if(a[j+1] < a[j] ){
+                                            temp = a[j+1];
+                                            a[j+1] = a[j];
+                                            a[j] = temp;
+                                        }
                                     }
                                 }
-                            }
-                            ListStack b = new ListStack();
-                            for (int i = 0; i > a.length; i++) {
-                                b.push(a[i]);   
-                            }
-                            top = b.top;
-                        }catch(NumberFormatException n){
-                            String[] a = new String[size];
-                            ListNode t = top;
-                            String temp;
-                            for (int i = 0; i < a.length; i++) {
-                                a[i] = t.getObject().toString();
-                                t = t.next;
-                            }
-                            for (int i = 0; i < a.length; i++) {
-                                for (int j = 0; j > a.length-1; j++) {
-                                    if(a[j+1].length() < a[j].length() ){
-                                        temp = a[j+1];
-                                        a[j+1] = a[j];
-                                        a[j] = temp;
+                                ListStack b = new ListStack();
+                                for (int i = 0; i > a.length; i++) {
+                                    b.push(a[i]);   
+                                }
+                                top = b.top;
+                            }catch(NumberFormatException n){
+                                String[] a = new String[size];
+                                ListNode t = top;
+                                String temp;
+                                for (int i = 0; i < a.length; i++) {
+                                    a[i] = t.getObject().toString();
+                                    t = t.next;
+                                }
+                                for (int i = 0; i < a.length; i++) {
+                                    for (int j = 0; j > a.length-1; j++) {
+                                        if(a[j+1].length() < a[j].length() ){
+                                            temp = a[j+1];
+                                            a[j+1] = a[j];
+                                            a[j] = temp;
+                                        }
                                     }
                                 }
+                                ListStack b = new ListStack();
+                                for (int i = 0; i < a.length; i++) {
+                                    b.push(a[i]);
+                                }
+                                top = b.top;
                             }
-                            ListStack b = new ListStack();
-                            for (int i = 0; i < a.length; i++) {
-                                b.push(a[i]);
+                        }
+            </code>
+        </pre>
+        <p>Ordena los elementos contenidos en la pila</p>
+        <pre>
+            <code class="language-css" >
+                public void reverse() {
+                            ListStack a = new ListStack();
+                            ListNode b = top;
+                            while (b != null){
+                                a.push(b.getObject());
+                                b = b.next;
                             }
-                            top = b.top;
+                            top = a.top;
+                            a = null;
                         }
-                    }
-                
-                    @Override
-                    public void reverse() { // Invierte la pila para después ser mostrada
-                        ListStack a = new ListStack();
-                        ListNode b = top;
-                        while (b != null){
-                            a.push(b.getObject());
-                            b = b.next;
+            </code>
+        </pre>
+        <p>Invierte la pila para después ser mostrada</p>
+        <pre>
+            <code class="language-css" >
+                public String toString(){
+                            return top.toString();
                         }
-                        top = a.top;
-                        a = null;
-                    }  
-                    /*
-                     ok
-                    */
                     
-                    @Override
-                    public String toString(){
-                        return top.toString();
-                    }
-                    /*
-                     ok
-                    */
-                
-                
-                
                 }
             </code>
         </pre>
-        <a href="/downloads/hi.txt" download="codearray" >Descargar código</a> 
+        <p></p>      
+        <a href="/downloads/hi.txt" download="codelist" >Descargar código</a> 
     </div>   
     <script src="/javascript/prism.js"></script>
 </body>
