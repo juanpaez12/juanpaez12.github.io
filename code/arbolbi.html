@@ -19,56 +19,158 @@
         </p>
         <pre>
             <code class="language-css" >
-                import java.util.Iterator;
-                import static java.lang.System.*;
+                import javax.print.DocFlavor;
 
-
-                public class List implements ListInterface, Iterable<ListNode> {
-                    private ListNode inode;
-                    private int size;
-
-                    public ListNode head;
-                    public ListNode tail;
-
-                    /**
-                    * List
-                    */
-                    public List() {
-                        clear();
+                public class BinTree {
+                public Node root;
+                
+                public BinTree(){this.root = null;}
+                
+                
+                public BinTree(Object object){
+                    this.root = subBinTree(null, object, null);
+                }
+                
+                public Node subBinTree(Node left,Object object,Node right){return new Node(left,object,right);}
+                
+                public boolean isEmpty(){return root ==null;}
+                
+                public boolean insertleft(Object object){
+                    try{
+                        if(!isEmpty()){
+                            root.left = subBinTree(null,object,null);
+                            return true;
+                        } else{
+                            return false;
+                        } 
+                    }catch(Exception e){
+                        e.printStackTrace();
+                        return false;
                     }
-
-                    /*
-                    ok
-                    */
-                    public List(Object object) {
-                        add(object);
+                }
+                
+                public boolean insertright(Object object){
+                    try{
+                        if(!isEmpty()){
+                            root.right = subBinTree(null,object,null);
+                            return true;
+                        } else{
+                            return false;
+                        } 
+                    }catch(Exception e){
+                        e.printStackTrace();
+                        return false;
                     }
-
-                    /*
-                    ok
-                    */
-                    @Override
-                    public boolean isEmpty() {
-                        return head == null;
+                }
+                
+                public String preOrder(Node root){
+                    String obj ="";
+                    obj += (root.object instanceof Node) ? ((Node) root.object).object.toString() : root.object.toString();
+                    obj += ((root.left != null) ? preOrder(root.left) : "");
+                    obj += ((root.right != null) ? preOrder(root.right) : "");
+                    return obj;
+                }
+                
+                public String inOrder(Node root){
+                    String obj ="";
+                    obj += ((root.left != null) ? inOrder(root.left) : "");
+                    obj += (root.object instanceof Node) ? ((Node) root.object).object.toString() : root.object.toString();
+                    obj += ((root.right != null) ? inOrder(root.right) : "");
+                    return obj;
+                }
+                
+                public String posOrder(Node root){
+                    String obj ="";
+                    obj += ((root.left != null) ? posOrder(root.left) : "");
+                    obj += ((root.right != null) ? posOrder(root.right) : "");
+                    obj += (root.object instanceof Node) ? ((Node) root.object).object.toString() : root.object.toString();
+                    return obj;
+                }
+                
+                public Node busqueda(int object){
+                    return busqueda(object,root);
+                }
+                
+                private Node busqueda(int object, Node root){
+                    if(root != null){
+                        if(object == (int)root.object){
+                            return root;
+                        }else if(object < (int)root.object){
+                            return busqueda(object,root.left);
+                        }else{
+                            return busqueda(object,root.right);
+                        }
+                    }else{
+                        return null;
                     }
-
-                    /*
-                    ok
-                    */
-                    @Override
-                    public int getSize() {
-                        return size;
+                }
+                
+                public void insertar(int object){
+                    root = insertar(object,root);
+                }
+                
+                private Node insertar(int object,Node root){
+                    if(root != null){
+                        if(object < (int)root.object){
+                            root.left = insertar(object,root.left);
+                        }else if(object > (int)root.object){
+                            root.right = insertar(object,root.right);
+                        }else{
+                            return null;
+                        }
+                    }else{
+                        root = new Node(object);
                     }
-
-                    /*
-                    ok
-                    */
-                    @Override
-                    public void clear() {
-                        head = null;
-                        tail = null;
-                        size = 0;
+                    return root;
+                }
+                
+                //Tomado y adaptado de estructuras de datos en c de Joyanes Aguilar.
+                public void eliminarNodo(int object){
+                    root = eliminar(object,root);
+                }
+                //Tomado y adaptado de estructuras de datos en c de Joyanes Aguilar.
+                private Node eliminar(int object, Node root){
+                    if(root == null){
+                        return null;
+                    }else if(object < (int)root.object){
+                        root.left = eliminar(object,root.left);
+                    }else if(object > (int)root.object){
+                        root.right = eliminar(object,root.right);
                     }
+                    else{
+                    Node a = root;
+            
+                    if(a.left == null){
+                        root = a.right;
+                    } else if(a.right == null){
+                        root = a.left;
+                    } else{
+                        a  = reemplazarNodos(a);
+                    }
+                    a = null;
+                    }
+                    return root;
+                    
+                }
+                //Tomado y adaptado de estructuras de datos en c de Joyanes Aguilar.
+                private Node reemplazarNodos(Node re){
+                    Node a,b;
+                    b = re;
+                    a = re.right;
+                    while(a.right != null){
+                        b = a;
+                        a = a.right;
+                    }
+                    re.object = a.object;
+                    if(b==re){
+                        b.left = a.right;
+                    }else{
+                        b.right = a.left;
+                    }
+                    return a;
+                }
+
+            }
             </code>
         </pre>
         <a href="/downloads/hi.txt" download="codearray" >Descargar código</a> 

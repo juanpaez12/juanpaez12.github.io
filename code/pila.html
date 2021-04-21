@@ -24,13 +24,13 @@
                     private int size;
                     private ListNode top;
                     
-                    public ListStack() {
+                    public ListStack() { // Inicialización de los elementos.
                         top = null;
                         size = 0;
                     }
                 
                     @Override
-                    public void clear() {
+                    public void clear() { // Se limpian los datos de la pila.
                         this.size = 0;
                         this.top = null;
                     }
@@ -39,7 +39,7 @@
                     */
                 
                     @Override
-                    public boolean isEmpty() {
+                    public boolean isEmpty() { // Se verifica si la pila está vacía
                         return size == 0;
                     }
                     /*
@@ -47,7 +47,7 @@
                     */
                 
                     @Override
-                    public Object peek() {
+                    public Object peek() { // nos permite ver el valor del último elemento, sin necesidad de borrar el elemento.
                         if(!isEmpty()){
                             return this.top.getObject();
                         }else{
@@ -59,7 +59,8 @@
                     */
                 
                     @Override
-                    public Object pop() { 
+                    public Object pop() {           // Extrae el objeto de la cima de la pila y lo devuelve;
+                                                    si la pila está vacía, ocurre un error.
                         Object a = top.getObject();
                         top = top.next;
                         this.size--;
@@ -70,7 +71,7 @@
                     */
                     
                     @Override
-                    public boolean push(Object object) { 
+                    public boolean push(Object object) { // Inserta un objeto sobre el último o cima de la pila
                         try{
                             ListNode nuevo = new ListNode(object);
                             nuevo.next = top;
@@ -94,7 +95,7 @@
                     */
                 
                     @Override
-                    public boolean search(Object object) {
+                    public boolean search(Object object) { // Busca un objecto contenido en la pila
                         ListNode a = top;
                         while(a != null){
                             if(a.getObject()  == object){
@@ -106,7 +107,7 @@
                     }
                 
                     @Override
-                    public void sort() {
+                    public void sort() { // Ordena los elementos contenidos en la pila
                         try{
                             Double[] a = new Double[size];
                             ListNode t = top;
@@ -155,7 +156,7 @@
                     }
                 
                     @Override
-                    public void reverse() {
+                    public void reverse() { // Invierte la pila para después ser mostrada
                         ListStack a = new ListStack();
                         ListNode b = top;
                         while (b != null){

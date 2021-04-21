@@ -32,14 +32,14 @@
                         public ListNode head;
                         public ListNode tail;
 
-                        public CircularList() {
+                        public CircularList() { // Este método es utilizado para limpiar la lista.
                             clear();
                         }
 
                         /*
                         ok
                         */
-                        public CircularList(Object object) {
+                        public CircularList(Object object) {  // Por medio de este método se añade el objeto
                             add(object);
                         }
 
@@ -47,7 +47,7 @@
                         ok
                         */
                         @Override
-                        public boolean isEmpty() {
+                        public boolean isEmpty() { // Este método verificca si la cabeza de la lista está vacía
                             return head == null;
                         }
 
@@ -55,7 +55,7 @@
                         ok
                         */
                         @Override
-                        public int getSize() {
+                        public int getSize() { // Este método permite saber el tamaño de la lista
                             return size;
                         }
 
@@ -63,7 +63,7 @@
                         ok
                         */
                         @Override
-                        public void clear() {
+                        public void clear() { // Este Método limpia todos los elementos de la lista.
                             head = null;
                             tail = null;
                             size = 0;
@@ -73,7 +73,7 @@
                         ok
                         */
                         @Override
-                        public Object getHead() {
+                        public Object getHead() { // Este método te permite retornar el valor de la cabeza
                             return head;
                         }
 
@@ -81,7 +81,7 @@
                         ok
                         */
                         @Override
-                        public Object getTail() {
+                        public Object getTail() { // Este método te permite retornar el valor de la cola
                             return tail;
                         }
 
@@ -89,7 +89,8 @@
                         ok
                         */
                         @Override
-                        public ListNode search(Object object) {
+                        public ListNode search(Object object) { // Se recorre la lista buscando el objecto 
+                                                                y en caso de no encontrarse retornará nulo.
                             Iterator<ListNode> i = this.iterator();
                             int s = 0;
                             ListNode inode = head;
@@ -107,7 +108,7 @@
                         ok
                         */
                         @Override
-                        public boolean add(Object object) {
+                        public boolean add(Object object) { // Inserta el objecto por la cola
                             return insertTail(object);
                         }
 
@@ -115,7 +116,8 @@
                         ok
                         */
                         @Override
-                        public boolean insert(ListNode node, Object object) {
+                        public boolean insert(ListNode node, Object object) {  // Verifica si lo siguiente 
+                                                                                al nodo es la cabeza y añade un objecto.
                             try {
                                 if (node.next == head) {
                                     add(object);
@@ -134,8 +136,9 @@
                         /*
                         ok
                         */
-                        @Override
-                        public boolean insert(Object ob, Object object) {
+                        @Override 
+                        public boolean insert(Object ob, Object object) {  // Se busca un objeto y en caso de
+                                                                             que este exista se inserta el dato.
                             try {
                                 if (ob != null) {
                                     ListNode node = this.search(ob);
@@ -156,7 +159,7 @@
                         ok
                         */
                         @Override
-                        public boolean insertHead(Object object) {
+                        public boolean insertHead(Object object) { Permite insertar datos por la cabeza
                             try {
                                 if (isEmpty()) {
                                     head = new ListNode(object);
@@ -177,7 +180,7 @@
                         ok
                         */
                         @Override
-                        public boolean insertTail(Object object) {
+                        public boolean insertTail(Object object) { // Permite ingresar datos por la cola
                             try {
                                 if (isEmpty()) {
                                     head = new ListNode(object);
@@ -199,7 +202,7 @@
                         ok
                         */
                         @Override
-                        public boolean remove(ListNode node) {
+                        public boolean remove(ListNode node) { // Remueve un nodo de la lista
                             return remove(node.getObject());
                         }
                         /*
@@ -207,7 +210,7 @@
                         */
                         
                         @Override
-                        public boolean remove(Object object) {
+                        public boolean remove(Object object) { // Remueve un objecto especifico de la lista
                             try{
                                 ListNode a = head;
                                 ListNode anterior = tail;
@@ -238,7 +241,7 @@
                         */
 
                         @Override
-                        public boolean contains(Object object) {
+                        public boolean contains(Object object) { // Se verifica si el objecto se encuentra contenido en la lista.
                             return search(object) != null;
                         }
                         /*
@@ -283,7 +286,7 @@
                         */
 
                         @Override
-                        public Object getBeforeTo() {
+                        public Object getBeforeTo() { // Permite pedir el objecto antes de otro objecto especifico
                             try{return tail.getObject();}catch(Exception e){return null;}
                         }
 
@@ -291,7 +294,7 @@
                         ok
                         */
                         @Override
-                        public ListNode getBeforeTo(ListNode node) {
+                        public ListNode getBeforeTo(ListNode node) { // Permite pedir el objecto antes de un nodo especifico
                             try{
                                 ListNode a = head;
                                 ListNode p = null;
@@ -309,7 +312,7 @@
                         */
 
                         @Override
-                        public Object getNextTo() {
+                        public Object getNextTo() { // Permite pedir el objecto después de un nodo especifico
                             try{return head.next.getObject();}catch(Exception e){return null;}
                         }
                         /*
@@ -317,7 +320,7 @@
                         */
 
                         @Override
-                        public Object getNextTo(ListNode node) {
+                        public Object getNextTo(ListNode node) { // Permite pedir el objecto después de un nodo especifico
                             try{return node.next.getObject();}catch(Exception e){return null;}
                         }
                         /*
@@ -325,7 +328,7 @@
                         */
                         
                         @Override
-                        public CircularList subList(ListNode from, ListNode to) {
+                        public CircularList subList(ListNode from, ListNode to) { // Crea una sublista con datos ya incluidos
                             CircularList listSub = new CircularList();
                             try{
                                 boolean stop = true;
@@ -346,7 +349,7 @@
                         */
 
                         @Override
-                        public CircularList sortList() {
+                        public CircularList sortList() { // Ordena los datos de la lista.
                             try{
                                 Double[] a = new Double[size];
                                 ListNode t = head;
@@ -398,7 +401,7 @@
                         */ 
                         
                         @Override
-                        public Iterator<ListNode> iterator() {
+                        public Iterator<ListNode> iterator() { // Permite recorrer los datos de la lista
                             inode = head;
                             return new Iterator<ListNode>() {
                                 @Override
