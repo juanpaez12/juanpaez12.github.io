@@ -95,4 +95,20 @@
   transform: translate(35%,0%);
 
 }
-
+table {
+  width: 40%;
+  border: 1px solid #000;
+}
+th, td {
+  width: 25%;
+  text-align: left;
+  vertical-align: top;
+  
+}
+cite  {
+  height:unset ;
+  position: relative;
+  top: auto;
+  left: 5%;
+  
+}
