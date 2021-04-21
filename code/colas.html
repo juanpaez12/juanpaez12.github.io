@@ -30,129 +30,184 @@
                     public ListQueue() {
                         clear();
                     }
-                    
-                    @Override
-                    public void clear() {
-                        size = 0;
-                        top = null;
-                        bot = null;
-                    }
-                
-                    @Override
-                    public boolean isEmpty() {
-                        return top == null;
-                    }
-                
-                    @Override
-                    public Object extract() {
-                        try{
-                            if(!isEmpty()){
-                                Object a = top.getObject();
-                                top = top.next;
-                                size--;
-                                return a;
-                            }else{
-                                return null;
-                            }    
-                        }catch(Exception e){
-                            return null;
-                        }
-                
-                    }
-                
-                    @Override
-                    public boolean insert(Object object) {
-                        try{
-                            ListNode nodoInsertado = new ListNode(object);
-                            if(!isEmpty()){
-                                bot.next = nodoInsertado;
-                            }else{
-                                top = nodoInsertado;
-                            }
-                            bot = nodoInsertado;
-                            size++;
-                            return true;
-                        }catch(Exception e){
-                            return false;
-                        }
-                    }
-                
-                    @Override
-                    public int size() {
-                        return size;
-                    }
-                
-                    @Override
-                    public boolean search(Object object) {
-                        
-                        try{
-                            if(!isEmpty()){
-                                ListNode a = top;
-                                while(a != null){
-                                    if(a.getObject().equals(object)){
-                                        return true;
-                                    }
-                                    a = a.next;
-                                }
-                                return false;
-                            }else{
-                                return false;
-                            }
-                        }catch(Exception e){
-                            return false;
-                        }
-                    }
-                
-                    @Override
-                    public void sort() {
-                        try{
-                            Object[] arreglo = new Object[size];
-                            ListNode a = top;
-                            for (int i = 0; i < size; i++) {
-                                arreglo[i] = a.getObject();
-                                a = a.next;
-                            }
-                            java.util.Arrays.sort(arreglo);
-                            top = null;
-                            for (int i = 0; i < arreglo.length; i++) {
-                                insert(arreglo[i]);
-                            }
-                            
-                        }catch(Exception e){
-                            
-                        }
-                    }
-                
-                    @Override
-                    public void reverse() {
-                        if(!isEmpty()){
-                            Object[] array = new Object[size];
-                            ListNode a = top;
-                            for (int i = 0; i < size; i++) {
-                                array[i] = a.getObject();
-                                a = a.next;
-                            }
-                            top = null;
-                            for (int i = array.length-1; i > -1; i--) {
-                                insert(array[i]);
-                            }
-                            
-                        }
-                    }
-                    
-                    @Override
-                    public String toString() {
-                        if(!isEmpty()){
-                            return top.toString();
-                        }else{
-                            return null;
-                        }
-                        
-                    }
-                    
+            </code>
+            
+        </pre>
+        <p> Este método es utilizado para limpiar la lista.</p>
+
+        
+        <pre>
+            <code class="language-css">
+
+            </code>
+        </pre>
+        <p></p>
+
+        <pre>
+            <code class="language-css">
+                @Override
+                public void clear() {
+                    size = 0;
+                    top = null;
+                    bot = null;
                 }
             </code>
         </pre>
+        <p></p>
+
+        <pre>
+            <code class="language-css">
+                @Override
+                public boolean isEmpty() {
+                    return top == null;
+                }
+            </code>
+        </pre>
+        <p></p>
+
+        <pre>
+            <code class="language-css">
+                @Override
+                public Object extract() {
+                    try{
+                        if(!isEmpty()){
+                            Object a = top.getObject();
+                            top = top.next;
+                            size--;
+                            return a;
+                        }else{
+                            return null;
+                        }    
+                    }catch(Exception e){
+                        return null;
+                    }
+            
+                }
+            </code>
+        </pre>
+        <p></p>
+
+        <pre>
+            <code class="language-css">
+                @Override
+                public boolean insert(Object object) {
+                    try{
+                        ListNode nodoInsertado = new ListNode(object);
+                        if(!isEmpty()){
+                            bot.next = nodoInsertado;
+                        }else{
+                            top = nodoInsertado;
+                        }
+                        bot = nodoInsertado;
+                        size++;
+                        return true;
+                    }catch(Exception e){
+                        return false;
+                    }
+                }
+            </code>
+        </pre>
+        <p></p>
+
+        <pre>
+            <code class="language-css">
+                @Override
+                public int size() {
+                    return size;
+                }
+            </code>
+        </pre>
+        <p></p>
+
+        <pre>
+            <code class="language-css">
+                @Override
+                public boolean search(Object object) {
+                    
+                    try{
+                        if(!isEmpty()){
+                            ListNode a = top;
+                            while(a != null){
+                                if(a.getObject().equals(object)){
+                                    return true;
+                                }
+                                a = a.next;
+                            }
+                            return false;
+                        }else{
+                            return false;
+                        }
+                    }catch(Exception e){
+                        return false;
+                    }
+                }
+            </code>
+        </pre>
+        <p></p>
+
+        <pre>
+            <code class="language-css">
+                @Override
+                public void sort() {
+                    try{
+                        Object[] arreglo = new Object[size];
+                        ListNode a = top;
+                        for (int i = 0; i < size; i++) {
+                            arreglo[i] = a.getObject();
+                            a = a.next;
+                        }
+                        java.util.Arrays.sort(arreglo);
+                        top = null;
+                        for (int i = 0; i < arreglo.length; i++) {
+                            insert(arreglo[i]);
+                        }
+                        
+                    }catch(Exception e){
+                        
+                    }
+                }
+            </code>
+        </pre>
+        <p></p>
+
+        <pre>
+            <code class="language-css">
+                @Override
+                public void reverse() {
+                    if(!isEmpty()){
+                        Object[] array = new Object[size];
+                        ListNode a = top;
+                        for (int i = 0; i < size; i++) {
+                            array[i] = a.getObject();
+                            a = a.next;
+                        }
+                        top = null;
+                        for (int i = array.length-1; i > -1; i--) {
+                            insert(array[i]);
+                        }
+                        
+                    }
+                }
+            </code>
+        </pre>
+        <p></p>
+
+        <pre>
+            <code class="language-css">
+                @Override
+                public String toString() {
+                    if(!isEmpty()){
+                        return top.toString();
+                    }else{
+                        return null;
+                    }
+                    
+                }
+                
+            }
+            </code>
+        </pre>
+        <p></p>
         <a href="/downloads/hi.txt" download="codearray" >Descargar código</a> 
     </div>
     <script src="/javascript/prism.js"></script>

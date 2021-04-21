@@ -93,7 +93,7 @@
                     ok
                     */
                     @Override
-                    public ListNodeDouble search(Object object) {
+                    public ListNodeDouble search(Object object) { // Método encargado de buscar el objecto en la lista.
                         Iterator<ListNodeDouble> i = this.iterator();
                         ListNodeDouble inode;
                         while ((inode = i.next()) != null) {
@@ -108,7 +108,7 @@
                     ok
                     */
                     @Override
-                    public boolean add(Object object) {
+                    public boolean add(Object object) { // Añade un nuevo nodo a la lista por la cola (Final).
                         return insertTail(object);
                     }
 
@@ -116,7 +116,7 @@
                     ok
                     */
                     @Override
-                    public boolean insert(ListNodeDouble node, Object object) {
+                    public boolean insert(ListNodeDouble node, Object object) { // Inserta un nuevo nodo en la ubicación de uno especifico.
                         try {
                             if (node.next == null) {
                                 add(object);
@@ -136,7 +136,7 @@
                     ok
                     */
                     @Override
-                    public boolean insert(Object ob, Object object) {
+                    public boolean insert(Object ob, Object object) { // Inserta un nuevo objecto en la ubicación de una especifico.
                         try {
                             if (ob != null) {
                                 ListNodeDouble node = this.search(ob);
@@ -157,7 +157,7 @@
                     ok
                     */
                     @Override
-                    public boolean insertHead(Object object) {
+                    public boolean insertHead(Object object) { // Inserta un nuevo nodo por la cabeza de la lista.
                         try {
                             if (isEmpty()) {
                                 head = new ListNodeDouble(object);
@@ -178,7 +178,7 @@
                     ok
                     */
                     @Override
-                    public boolean insertTail(Object object) {
+                    public boolean insertTail(Object object) { // Inserta un nuevo nodo por la cola de la lista.
                         try {
                             if (isEmpty()) {
                                 head = new ListNodeDouble(object);
@@ -199,7 +199,7 @@
                     ok
                     */
                     @Override
-                    public boolean remove(ListNodeDouble node) {
+                    public boolean remove(ListNodeDouble node) { // Remueve un nodo especifico de la lista.
                         return remove(node.getObject());
                     }
 
@@ -207,7 +207,7 @@
                     ok
                     */
                     @Override
-                    public boolean remove(Object object) {
+                    public boolean remove(Object object) { // Remueve un objecto especifico de la lista
                         try{
                             if(object != null){
                                 boolean eliminado = false;
@@ -237,13 +237,13 @@
                     }
 
                     @Override
-                    public boolean contains(Object object) {
+                    public boolean contains(Object object) { // Verifica si el objecto existe en la lista
                         return search(object) != null;
                     }
 
 
                     @Override
-                    public Object[] toArray() {
+                    public Object[] toArray() { // Sirve para crear un arreglo de la lista.
                         if(isEmpty()){
                             return new Object[0];
                         }else{
@@ -259,7 +259,7 @@
                     }
 
                     @Override
-                    public Object[] toArray(Object[] object) {
+                    public Object[] toArray(Object[] object) { // Sirve para crear un arreglo de la lista.
                         if(isEmpty()){
                             return new Object[0];
                         }else{
@@ -268,7 +268,7 @@
                     }
 
                     @Override
-                    public Object getBeforeTo() {
+                    public Object getBeforeTo() { // Permite retornar el nodo anterior a un objecto especifico.
                         try{
                             return head.previous.getObject();
                         }catch(Exception e){
@@ -280,22 +280,22 @@
                     ok
                     */
                     @Override
-                    public ListNodeDouble getBeforeTo(ListNodeDouble node) { 
+                    public ListNodeDouble getBeforeTo(ListNodeDouble node) {  // Permite retornar el nodo anterior a otro especifico.
                         try{return node.previous;}catch(Exception e){return null;}
                     }
 
                     @Override
-                    public Object getNextTo() {
+                    public Object getNextTo() { // Permite retornar el nodo siguiente a un objecto especifico.
                         return head.next.getObject();
                     }
 
                     @Override
-                    public Object getNextTo(ListNodeDouble node) {
+                    public Object getNextTo(ListNodeDouble node) { // // Permite retornar el nodo siguiente a otro especifico.
                         try{return node.next;}catch(Exception e){return null;}
                     }
 
                     @Override
-                    public DoubleList subList(ListNodeDouble from, ListNodeDouble to) {
+                    public DoubleList subList(ListNodeDouble from, ListNodeDouble to) { // Crea una sublista de la lista principal.
                         DoubleList listSub = new DoubleList();
                         try{
                             boolean stop = true;
@@ -313,7 +313,7 @@
                     }
 
                     @Override
-                    public DoubleList sortList() {
+                    public DoubleList sortList() { // Ordena los datos almacenados en la lista.
                         try{
                             Double[] a = new Double[size];
                             ListNodeDouble t = head;
@@ -362,7 +362,7 @@
                     }
 
                     @Override
-                    public Iterator<ListNodeDouble> iterator() {
+                    public Iterator<ListNodeDouble> iterator() { // Permite recorrer a través de los datos de la lista.
                         inode = head;
                         return new Iterator<ListNodeDouble>() {
                             @Override
@@ -391,7 +391,7 @@
                         out.println(node.toString());
                     }
                     @Override
-                    public String toString(){
+                    public String toString(){ 
                         String a = "null <-> ";
                         ListNodeDouble node = head;
                         while(node != null){
