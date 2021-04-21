@@ -96,13 +96,14 @@
 
 }
 table {
-  width: 40%;
+  width:50%;
   border: 1px solid #000;
 }
 th, td {
-  width: 25%;
+  width: 40%;
   text-align: left;
   vertical-align: top;
+  border: 1px solid black;
   
 }
 cite  {
@@ -110,5 +111,4 @@ cite  {
   position: relative;
   top: auto;
   left: 5%;
-  
 }
