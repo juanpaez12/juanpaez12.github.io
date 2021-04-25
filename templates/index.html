@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="/prism.css" rel="stylesheet" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Estructura de Datos</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/yeti/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="estilos.css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="shortcut icon" href="img-style/descarga.png">
+</head>
+
+<body>
+    <!--Menú-->
+    <div class="header">
+        <nav class="navbar navbar-expand-lg navbar-collapse bg-secondary">
+            <div class="icon" >
+                <a class="navbar-brand" href="#"><img src="img-style/aprendeconupb.png" class="icon" width="250" height="100" alt=""></a>                
+            </div>   
+                <img src="hamburguesa.svg" alt="" class="hamburguesa" >
+                <nav class="menu" style="font-size: medium;">
+                    <a href="#Inicio">Inicio<hr></a>
+                    <a href="#ListasSE ">ListasSE <hr></a>
+                    <a href="#ListasDE ">ListasDE <hr></a>
+                    <a href="#ListaCircularSE ">ListasCircular <hr></a>
+                    <a href="#ListaCircularDE ">ListasDCircular <hr></a>
+                    <a href="#Pilas ">Pilas <hr></a>
+                    <a href="#Colas ">Colas <hr></a>
+                    <a href="#Arboles Binarios">Arboles Binarios<hr></a>
+                    <a href="#Arboles n-arios">Arboles n-arios<hr></a>                    
+                </nav>                           
+      </nav>
+    </div>
+      <!--Menú-->
+      <!--Content-->
+      <div class="container">
+            <!--Tema principal-->
+            <h2 class="my-5 text-center text-primary" >Estructura de Datos</h2>
+            <hr>
+            <!---->
+            <div class="row" ></div> 
+            <!--Sección de inicio-->
+            <section class="container" id="Inicio" >
+                <h2 class="subtitulo">¿Qué es una estructura de datos?</h2>
+                <div class="center">
+                    <img src="Img-datos/estructuradedatos.png" class="img-center" alt="" id= "imgEstructura" >  
+                                                           
+                </div>   
+                <cite>Fig1: https://estructurayorganizaciondedatos.blogspot.com/2013/09/unidad-i-fundamentos-de-estructura-de.html</cite> <p></p>
+                 <p>Las estructuras de datos son una forma de organizar los datos en la computadora, de tal manera que nos permita realizar unas        operaciones con ellas de forma  muy eficiente.
+                    Es decir, igual que un array introducimos un dato y eso es prácticamente inmediato, no siempre lo es, según qué estructuras de datos y qué operaciones.
+                    Depende que algoritmo queramos ejecutar, habrá veces que sea mejor utilizar una estructura de datos u otra estructura que nos permita más velocidad.
+                    Por este motivo es interesante conocer algo más que simplemente los arrays o los hashmaps que casi todo el mundo conoce.
+                </p>           
+            </section>
+            <hr>
+            <!--Sección de inicio-->
+            <!--Sección de Listas-->            
+            <section class="container" id="ListasSE" >
+
+                <h2 class="subtitulo">Listas Simplemente Enlazada</h2>
+                <div class="center">
+                    <img src="Img-datos/listasimpleenlace.png" class="img-center" alt="" id="imgEstructura">                                          
+                </div>  
+                <cite>Fig2: http://codigolibre.weebly.com/blog/listas-circulares-simples-en-java</cite> <p></p>
+                <p>Las listas simplemente enlazadas son estructuras dinámicas compuestas por nodos, los cuales poseen dos atributos: el dato que almacena el nodo y un enlace al siguiente nodo de la lista.</p>
+                <pre>
+                    <code class="language-css" >
+                        public interface ListInterface {
+    
+                            /*
+                            essential operations
+                            */
+                            public boolean isEmpty();
+                        
+                            public int getSize();
+                        
+                            public void clear();
+                        
+                            public Object getHead();
+                        
+                            public Object getTail();
+                        
+                            public ListNode search(Object object);
+                        
+                            public boolean add(Object object);
+                        
+                            public boolean insert(ListNode node, Object object);
+                        
+                            public boolean insert(Object ob, Object object);
+                        
+                            public boolean insertHead(Object object);
+                        
+                            public boolean insertTail(Object object);
+                        
+                            public boolean remove(ListNode node);
+                        
+                            public boolean remove(Object object);
+                        
+                            /*
+                            expansion operations
+                             */
+                            public boolean contains(Object object);
+                        
+                            public Iterator<ListNode> iterator();
+                        
+                            public Object[] toArray();
+                        
+                            public Object[] toArray(Object[] object);
+                        
+                            public Object getBeforeTo();
+                        
+                            public ListNode getBeforeTo(ListNode node);
+                        
+                            public Object getNextTo();
+                        
+                            public Object getNextTo(ListNode node);
+                        
+                            public List subList(ListNode from, ListNode to);
+                        
+                            public List sortList();
+                        }
+                    </code>
+                </pre>
+                <a href="code/listase.html">Ver código</a>
+            </section>
+            <hr>  
+            <section class="container" id="ListasDE" >
+
+                <h2 class="subtitulo">Listas Doblemente Enlazada</h2>
+                <div class="center">
+                    <img src="Img-datos/listadobleenlazada.png" class="img-center" alt="" id= "imgEstructura" >                                          
+                </div>  
+                <cite>Fig3: https://ichi.pro/es/estructura-de-datos-en-swift-lista-doblemente-enlazada-parte-4-253264836323555</cite> <p></p>
+                <p>Partimos del significado de las listas simplemente 
+                enlazadas solo que en este caso se le agrega un enlace al elemento posicionado antes del nodo.</p>
+                <pre>
+                    <code class="language-css">
+                    public interface ListInterface {
+                        /*
+                        essential operations
+                        */
+                        public boolean isEmpty();
+
+                        public int getSize();
+
+                        public void clear();
+
+                        public Object getHead();
+
+                        public Object getTail();
+
+                        public ListNodeDouble search(Object object);
+
+                        public boolean add(Object object);
+
+                        public boolean insert(ListNodeDouble node, Object object);
+
+                        public boolean insert(Object ob, Object object);
+
+                        public boolean insertHead(Object object);
+
+                        public boolean insertTail(Object object);
+
+                        public boolean remove(ListNodeDouble node);
+
+                        public boolean remove(Object object);
+
+                        /*
+                        expansion operations
+                        */
+                        public boolean contains(Object object);
+
+                        public Iterator<ListNodeDouble> iterator();
+
+                        public Object[] toArray();
+
+                        public Object[] toArray(Object[] object);
+
+                        public Object getBeforeTo();
+
+                        public ListNodeDouble getBeforeTo(ListNodeDouble node); 
+
+                        public Object getNextTo();
+
+                        public Object getNextTo(ListNodeDouble node);
+
+                        public DoubleList subList(ListNodeDouble from, ListNodeDouble to);
+
+                        public DoubleList sortList();
+
+                    }
+                    </code>
+                </pre>
+                <a href="code/listade.html">Ver código</a>
+            </section> 
+            <hr>
+            <section class="container" id="ListaCircularSE" >
+
+                <h2 class="subtitulo">Listas Circular Simplemente Enlazada</h2>
+                <div class="center">
+                    <img src="Img-datos/circularsimple.png" class="img-center" alt="" id= "imgEstructura" >                                          
+                </div>  
+                <cite>Fig4: http://codigolibre.weebly.com/blog/listas-circulares-simples-en-java</cite> <p></p>
+                <p>Partimos del significado de las listas simplemente 
+                enlazadas solo que en este caso se le agrega un enlace al elemento posicionado antes del nodo.</p>
+                <pre>
+                    <code class="language-css">
+                        public interface ListInterface {
+    
+                            /*
+                            essential operations
+                            */
+                            public boolean isEmpty();
+                        
+                            public int getSize();
+                        
+                            public void clear();
+                        
+                            public Object getHead();
+                        
+                            public Object getTail();
+                        
+                            public ListNode search(Object object);
+                        
+                            public boolean add(Object object);
+                        
+                            public boolean insert(ListNode node, Object object);
+                        
+                            public boolean insert(Object ob, Object object);
+                        
+                            public boolean insertHead(Object object);
+                        
+                            public boolean insertTail(Object object);
+                        
+                            public boolean remove(ListNode node);
+                        
+                            public boolean remove(Object object);
+                        
+                            /*
+                            expansion operations
+                             */
+                            public boolean contains(Object object);
+                        
+                            public Iterator<ListNode> iterator();
+                        
+                            public Object[] toArray();
+                        
+                            public Object[] toArray(Object[] object);
+                        
+                            public Object getBeforeTo();
+                        
+                            public ListNode getBeforeTo(ListNode node);
+                        
+                            public Object getNextTo();
+                        
+                            public Object getNextTo(ListNode node);
+                        
+                            public CircularList subList(ListNode from, ListNode to);
+                        
+                            public CircularList sortList();
+                        }
+                        
+                    </code>
+                </pre>
+                <a href="code/circularS.html">Ver código</a>
+            </section> 
+            <hr>
+            <section class="container" id="ListaCircularDE" >
+
+                <h2 class="subtitulo">Lista Circular Doblemente Enlazada</h2>
+                <div class="center">
+                    <img src="Img-datos/listacirculardoble.jpg" class="img-center" alt="" id= "imgEstructura" >                                          
+                </div>
+                <cite>Fig5: http://cidecame.uaeh.edu.mx/lcc/mapa/PROYECTO/libro9/lista_circular_doblemente_enlazada.html</cite>   <p></p>
+                <p>Partimos del significado de las listas simplemente 
+                enlazadas solo que en este caso se le agrega un enlace al elemento posicionado antes del nodo.</p>
+                <pre>
+                    <code class="language-css">
+                        public interface ListInterface {
+
+                            /*
+                            essential operations
+                            */
+                            public boolean isEmpty();
+                        
+                            public int getSize();
+                        
+                            public void clear();
+                        
+                            public Object getHead();
+                        
+                            public Object getTail();
+                        
+                            public ListNodeDouble search(Object object);
+                        
+                            public boolean add(Object object);
+                        
+                            public boolean insert(ListNodeDouble node, Object object);
+                        
+                            public boolean insert(Object ob, Object object);
+                        
+                            public boolean insertHead(Object object);
+                        
+                            public boolean insertTail(Object object);
+                        
+                            public boolean remove(ListNodeDouble node);
+                        
+                            public boolean remove(Object object);
+                        
+                            /*
+                            expansion operations
+                             */
+                            public boolean contains(Object object);
+                        
+                            public Iterator<ListNodeDouble> iterator();
+                        
+                            public Object[] toArray();
+                        
+                            public Object[] toArray(Object[] object);
+                        
+                            public Object getBeforeTo();
+                        
+                            public ListNodeDouble getBeforeTo(ListNodeDouble node); 
+                        
+                            public Object getNextTo();
+                        
+                            public Object getNextTo(ListNodeDouble node);
+                        
+                            public DoubleCircularList subList(ListNodeDouble from, ListNodeDouble to);
+                        
+                            public DoubleCircularList sortList();
+                        
+                        }
+                    </code>
+                </pre>
+                <a href="code/circularD.html">Ver código</a>
+            </section> 
+            <hr>
+            <!--Sección de Listas-->
+            <!--Sección de pilas-->
+            <section class="container" id="Pilas">
+                <h2 class="subtitulo">Pilas</h2>
+                <div class="center">
+                    <img src="Img-datos/Pilas.png" class="img-center" alt="" id= "imgPilas" height="300px" width="200px">                      
+                </div>  
+                <cite>Fig6: Joyanes, Luis y Guardati, Silvia.Estructuras de Datos en C++. McGraw-Hill, 2007.</cite>  <p></p>
+                <p>Una pila, es una lista ordenada o estructura de datos en la que el modo de acceso a sus elementos es de tipo LIFO (del inglés Last In First Out, último en entrar, primero en salir) que permite almacenar y recuperar datos. Esta estructura se aplica en multitud de ocasiones en el área de informática debido a su simplicidad y ordenación implícita de la propia estructura. Para el manejo de los datos se cuenta con dos operaciones básicas: apilar (push), que coloca un objeto en la pila, y su operación inversa, retirar (o desapilar, pop), que retira el último elemento apilado. En cada momento sólo se tiene acceso a la parte superior de la pila, es decir, al último objeto apilado (denominado TOS, Top of Stack en inglés)</p>
+                <pre>
+                    <code class="language-css">
+                        public interface StackInterface {
+
+                            public void clear();
+                        
+                            public boolean isEmpty();
+                        
+                            public Object peek();
+                        
+                            public Object pop();
+                        
+                            public boolean push(Object object);
+                        
+                            public int size();
+                        
+                            public boolean search(Object object);
+                        
+                            public void sort();
+                        
+                            public void reverse();
+                        
+                            public String toString();
+                        
+                        }
+                    </code>
+                </pre>
+                <a href="code/pila.html">Ver código de pila por listas</a> <a href="code/pilaA.html">Ver código de pila por array</a>
+            </section>  
+            <hr> 
+            <!--Sección de pilas-->
+            <!--Sección de Colas-->
+            <section class="container" id="Colas" >
+                <h2 class="subtitulo">Colas</h2>
+                <div class="center">
+                    <img src="Img-datos/Colas.png" class="img-center" alt="" id= "imgColas" height="250px" width="50">                      
+                </div> 
+                    <cite>Fig7: https://blog.jappsku.co/colas-queue-en-swift/</cite>   <p></p>
+                    <p>Una cola es un grupo ordenado de elementos del mismo tipo, en la cual dichos elementos se añaden por un extremo (Final) y se quitan por el otro extremo (Frente). Esto significa que los elementos se sacan en el mismo orden en el que fueron insertados o introducidos en la cola, siendo por ello considerada como una estructura de datos FIFO (First In First Out), es decir, que el primer elemento en entrar es el primer elemento en salir.</p>
+                    <pre>
+                        <code class="language-css">
+                            public interface QueueInterface {
+    
+                                public void clear();
+                                
+                                public boolean isEmpty();
+                                
+                                public Object extract();
+                                
+                                public boolean insert(Object object);
+                                
+                                public int size();
+                                
+                                public boolean search(Object object);
+                                
+                                public void sort();
+                                
+                                public void reverse();
+                                
+                                public String toString();
+                                
+                            }
+                        </code>
+                    </pre>
+                    <a href="code/colas.html">Ver código</a>
+            </section>   
+            <hr>
+            <!--Sección de Colas-->
+            <!--Sección de Arboles Binarios-->
+            <section class="container" id="Arboles Binarios" >
+                <h2 class="subtitulo">Arboles Binarios</h2>
+                <div class="center">
+                        <img src="Img-datos/ABinario.png" class="img-center" alt="" id= "imgABinario" height="300px" width="200px">                      
+                </div>   
+                    <cite>Fig8: https://hhmosquera.wordpress.com/arbolesbinarios/</cite> <p></p>
+                    <p>Un árbol binario es una estructura de datos no lineal en la que cada nodo puede apuntar a uno o máximo a dos nodos. También se suele dar una definición recursiva que indica que es una estructura compuesta por un dato y dos árboles. 
+                    Este tipo de árbol se caracteriza porque tienen un vértice principal y de él se desprende dos ramas. La rama izquierda y la rama derecha a las que también se les conoce como subárboles.</p>
+                    <a href="code/arbolbi.html">Ver código</a>
+            </section>   
+            <hr>
+            <!--Sección de Arboles Binarios-->
+            <!--Sección de Arboles n-arios-->
+            <section class="container" id="Arboles n-arios" >
+                <h2 class="subtitulo">Arboles N-arios</h2>
+                <div class="center">
+                    <img src="Img-datos/A_nario.png" class="img-center" alt="" id= "imgAnario" height="300px" width="200px">                      
+                </div>   
+                    <cite>Fig9: https://www.vippng.com/maxp/hRJJmix/</cite> <p></p>
+                    
+                    <p>Es una estructura de datos donde cada nodo posee un numero indeterminado de hijos. es una estructura recursiva, y corresponde a la generalización de un árbol binario de cuyos nodos pueden desprenderse múltiples arboles binarios. las reglas que aplican a los arboles binarios pueden ser fácilmente transpoladas a los arboles n-arios así como los consejos base.</p>
+                    <a href="code/arboln.html">Ver código</a>
+            </section> 
+            <hr>
+            <!--Sección de Arboles n-arios-->
+            <!--Tabla-->
+            <table class="default">
+                <tr>
+                    
+                    <th>Referencias.</th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td>[1]</td>
+                    <td>Joyanes, Luis y Guardati, Silvia.Estructuras de Datos en C++. McGraw-Hill, 2007.</td>
+                </tr>
+                <tr>
+                    <td>[2]</td>
+                    <td>Lista Enlazada Simple o Lista Simplemente Enlazada - UBO - Estructuras de Datos", Sites.google.com, 2021. [Online]. Available: https://sites.google.com/site/edatosubo/4-estructura-de-datos-dinamicas/1-listas/1-lista-enlazada-simple-o-lista-simplemente-enlazada. [Accessed: 21- Apr- 2021].</td>
+                </tr>
+            </table>
+    <!--Tabla-->
+            
+      </div>
+      <!--Content-->
+      
+
+    <div class="footer">     
+        <div class="card-body" style="background-color:rgb(212, 212, 212)" >
+        <h2 style="font-size: medium;" class="brand mb-3">Realizado por estudiantes de tercer semestre</h2>
+            <p class="small m-0" >Omar Freddy Nova Bustamante</p>
+            <p class="small m-0" >Juan Esteban Páez Albarracín</p>
+            <p class="small " >Jossyr Rafael Pinto Caddevila</p>
+        </div>       
+    </div> 
+        
+
+</body>
+
+    <script src="javascript/menu.js"></script>
+    <script src="/javascript/prism.js"></script>
+</html>
