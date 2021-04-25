@@ -1,17 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <link href="/prism.css" rel="stylesheet" />
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listas Simplemente Enlazada</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/yeti/bootstrap.min.css">
-    
-    <link rel="stylesheet" href="estilos.css">
-    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-</head>
-<body>
+{% extends "layout.html" %}
+
+{% block content %}
+<head><title>Lista Simplemente Enlazada</title></head>
     <div class="container" >
         
         <h1>Código Listas simplemente enlazadas</h1>
@@ -433,8 +423,7 @@
         </pre>
         <a href="/pythoncode/listade.html">Python </a><a href="pythoncode/ListNode.html">ListNodePy </a>
         <br>
-        <a href="/downloads/java/ListaSimple.rar" download="ListaSimple.rar" >Descargar código</a> 
+        <a href="{{url_for('static', filename='downloads/java/ListaSimple.rar')}}" download="ListaSimple.rar" >Descargar código</a> 
     </div>
-    <script src="/javascript/prism.js"></script>
-</body>
-</html>
+
+{% endblock %}

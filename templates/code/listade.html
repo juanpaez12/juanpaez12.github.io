@@ -1,97 +1,124 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <link href="/prism.css" rel="stylesheet" />
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista Circular Doblemente Enlzada</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/yeti/bootstrap.min.css">
-    
-    <link rel="stylesheet" href="estilos.css">
-    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-</head>
-<body>
+{% extends "layout.html" %}
+
+{% block content %}
+
+    <head><title>Listas Doblemente Enlazada</title></head>
     <div class="container">
         
-        <h1>Lista Circular Doblemente Enlazada</h1>
-        </p>
+        <h1>Código Lista Doblemente Enlazada</h1>
+        
         <pre>
             <code class="language-css" >
-        import java.util.Iterator;
+                package ListaDoble;
 
-        import static java.lang.System.*;
 
-        public class DoubleList implements ListInterface, Iterable<ListNodeDouble> {
+                import java.util.Iterator;
 
-            private ListNodeDouble inode;
-            private int size;
+                import static java.lang.System.*;
 
-            public ListNodeDouble head;
-            public ListNodeDouble tail;
-        
-            /**
-            * List
-            */
-            public DoubleList() {
-                clear();
-            }
+                public class DoubleList implements ListInterface, Iterable<ListNodeDouble> {
+
+                    private ListNodeDouble inode;
+                    private int size;
+
+                    public ListNodeDouble head;
+                    public ListNodeDouble tail;
+
+                    /**
+                    * List
+                    */
+                    public DoubleList() {
+                        clear();
+                    }
             </code>
         </pre>
-        <p>Este método es utilizado para limpiar la lista.</p>    
+        <p>Permite limpiar la lista</p>
+
         <pre>
-            <code class="language-css" >
-                public DoubleList(Object object) { 
+            <code class="language-css">
+                /*
+                ok
+                */
+                public DoubleList(Object object) {
                     add(object);
                 }
             </code>
         </pre>
-        <p>Por medio de este método se añade el objeto</p>
+        <p>Añade un objecto a la lista</p>
+
         <pre>
-            <code class="language-css" >
-                public boolean isEmpty() { // 
+            <code class="language-css">
+                /*
+                ok
+                */
+                public boolean isEmpty() {
                     return head == null;
                 }
             </code>
-        </pre> 
-        <p>Este método verificca si la cabeza de la lista está vacía</p>   
+        </pre>
+        <p>Verifica si la lista está limpia</p>
+
         <pre>
-            <code class="language-css" >
-                public int getSize() { // Este método permite saber el tamaño de la lista
+            <code class="language-css">
+                /*
+                ok
+                */
+                @Override
+                public int getSize() {
                     return size;
                 }
             </code>
         </pre>
-        <p>Por medio de este método se añade el objeto</p>
+        <p>Permite retornar el tamaño de la lista</p>
+
         <pre>
-            <code class="language-css" >
-                public void clear() { // 
+            <code class="language-css">
+                /*
+                ok
+                */
+                @Override
+                public void clear() {
                     head = null;
                     tail = null;
                     size = 0;
                 }
             </code>
         </pre>
-        <p>Este Método limpia todos los elementos de la lista.</p>
+        <p>Inicializa los metodos.</p>
+
         <pre>
-            <code class="language-css" >
-                public Object getHead() { //
+            <code class="language-css">
+                /*
+                ok
+                */
+                @Override
+                public Object getHead() {
                     return head;
                 }
             </code>
         </pre>
-        <p> Este método te permite retornar el valor de la cabeza</p>
+        <p>Retorna el valor del elemento ubicado en la cabeza</p>
+        
         <pre>
-            <code class="language-css" >
-                public Object getTail() { // 
+            <code class="language-css">
+                /*
+                ok
+                */
+                @Override
+                public Object getTail() {
                     return tail;
                 }
             </code>
         </pre>
-        <p>Este método te permite retornar el valor de la cola</p>
+        <p>Retorna el valor del elemento ubicado en la cola</p>
+        
         <pre>
-            <code class="language-css" >
-                public ListNodeDouble search(Object object) {
+            <code class="language-css">
+                /*
+                ok
+                */
+                @Override
+                public ListNodeDouble search(Object object) { 
                     Iterator<ListNodeDouble> i = this.iterator();
                     ListNodeDouble inode;
                     while ((inode = i.next()) != null) {
@@ -103,18 +130,28 @@
                 }
             </code>
         </pre>
-        <p>Se recorre la lista buscando el objecto y en caso de no encontrarse retornará nulo.</p>
+        <p>Método encargado de buscar el objecto en la lista.</p>
+        
         <pre>
-            <code class="language-css" >
-                public boolean add(Object object) { // 
+            <code class="language-css">
+                /*
+                ok
+                */
+                @Override
+                public boolean add(Object object) {
                     return insertTail(object);
                 }
             </code>
         </pre>
-        <p>Por medio de este elemento podemos añadir objetos por medio de la cola.</p>
+        <p>Añade un nuevo nodo a la lista por la cola (Final).</p>
+
         <pre>
-            <code class="language-css" >
-                public boolean insert(ListNodeDouble node, Object object) { // 
+            <code class="language-css">
+                /*
+                ok
+                */
+                @Override
+                public boolean insert(ListNodeDouble node, Object object) {
                     try {
                         if (node.next == null) {
                             add(object);
@@ -131,10 +168,15 @@
                 }
             </code>
         </pre>
-        <p>Verifica si lo siguiente al nodo es nulo para así añadir un objecto.</p>
+        <p>Inserta un nuevo nodo en la ubicación de uno especifico.</p>
+
         <pre>
-            <code class="language-css" >
-                public boolean insert(Object ob, Object object) {  //.
+            <code class="language-css">
+                /*
+                ok
+                */
+                @Override
+                public boolean insert(Object ob, Object object) {
                     try {
                         if (ob != null) {
                             ListNodeDouble node = this.search(ob);
@@ -152,9 +194,14 @@
                 }
             </code>
         </pre>
-        <p>Se busca un objeto y en caso de que este exista se inserta el dato</p>
+        <p>Inserta un nuevo objecto en la ubicación de una especifico.</p>
+
         <pre>
-            <code class="language-css" >
+            <code class="language-css">
+                /*
+                ok
+                */
+                @Override
                 public boolean insertHead(Object object) {
                     try {
                         if (isEmpty()) {
@@ -173,9 +220,14 @@
                 }
             </code>
         </pre>
-        <p>Permite ingresar datos por medio de la cabeza</p>
+        <p>Inserta un nuevo nodo por la cabeza de la lista.</p>
+
         <pre>
-            <code class="language-css" >
+            <code class="language-css">
+                /*
+                ok
+                */
+                @Override
                 public boolean insertTail(Object object) {
                     try {
                         if (isEmpty()) {
@@ -194,17 +246,27 @@
                 }
             </code>
         </pre>
-        <p>Permite ingresar datos por medio de la cola</p>
+        <p>Inserta un nuevo nodo por la cola de la lista.</p>
+
         <pre>
-            <code class="language-css" >
+            <code class="language-css">
+                /*
+                ok
+                */
+                @Override
                 public boolean remove(ListNodeDouble node) {
                     return remove(node.getObject());
                 }
             </code>
         </pre>
-        <p>Permite remover un nodo</p>
+        <p>Remueve un nodo especifico de la lista.</p>
+        
         <pre>
-            <code class="language-css" >
+            <code class="language-css">
+                /*
+                ok
+                */
+                @Override
                 public boolean remove(Object object) {
                     try{
                         if(object != null){
@@ -235,17 +297,21 @@
                 }
             </code>
         </pre>
-        <p>Permite remover un objecto</p>
+        <p>Remueve un objecto especifico de la lista</p>
+        
         <pre>
-            <code class="language-css" >
-                public boolean contains(Object object) {
+            <code class="language-css">
+                @Override
+                public boolean contains(Object object) { 
                     return search(object) != null;
                 }
             </code>
         </pre>
-        <p>Permite saber si un objeto ya está contenido</p>
+        <p>Verifica si un objecto existe en la lista</p>
+        
         <pre>
-            <code class="language-css" >
+            <code class="language-css">
+                @Override
                 public Object[] toArray() {
                     if(isEmpty()){
                         return new Object[0];
@@ -262,9 +328,11 @@
                 }
             </code>
         </pre>
-        <p>...</p>
+        <p>Permite crear un arreglo de la lista.</p>
+        
         <pre>
-            <code class="language-css" >
+            <code class="language-css">
+                @Override
                 public Object[] toArray(Object[] object) { 
                     if(isEmpty()){
                         return new Object[0];
@@ -274,9 +342,11 @@
                 }
             </code>
         </pre>
-        <p>...</p>
+        <p>crear un arreglo de la lista.</p>
+        
         <pre>
-            <code class="language-css" >
+            <code class="language-css">
+                @Override
                 public Object getBeforeTo() {
                     try{
                         return head.previous.getObject();
@@ -286,33 +356,44 @@
                 }
             </code>
         </pre>
-        <p>Permite pedir el objecto antes de otro objecto especifico</p>
+        <p>Permite retornar el nodo anterior a un objecto especifico.</p>
+
         <pre>
-            <code class="language-css" >
-                public ListNodeDouble getBeforeTo(ListNodeDouble node) {  // 
+            <code class="language-css">
+                /*
+                ok
+                */
+                @Override
+                public ListNodeDouble getBeforeTo(ListNodeDouble node) {
                     try{return node.previous;}catch(Exception e){return null;}
                 }
             </code>
         </pre>
-        <p>Permite pedir el objecto antes de un nodo especifico.</p>
+        <p>Permite retornar el nodo anterior a otro especifico.</p>
+
         <pre>
-            <code class="language-css" >
-                public Object getNextTo() {  // 
+            <code class="language-css">
+                @Override
+                public Object getNextTo() {
                     return head.next.getObject();
                 }
             </code>
         </pre>
-        <p>Permite pedir el objecto después de un nodo especifico</p>
+        <p>Permite retornar el nodo siguiente a un objecto especifico.</p>
+
         <pre>
-            <code class="language-css" >
-                public Object getNextTo(ListNodeDouble node) { // 
+            <code class="language-css">
+                @Override
+                public Object getNextTo(ListNodeDouble node) {
                     try{return node.next;}catch(Exception e){return null;}
                 }
             </code>
         </pre>
-        <p>Permite pedir el objecto después de un nodo especifico.</p>
+        <p>Permite retornar el nodo siguiente a otro especifico.</p>
+        
         <pre>
-            <code class="language-css" >
+            <code class="language-css">
+                @Override
                 public DoubleList subList(ListNodeDouble from, ListNodeDouble to) {
                     DoubleList listSub = new DoubleList();
                     try{
@@ -331,10 +412,12 @@
                 }
             </code>
         </pre>
-        <p>Crea una sublista con datos ya incluidos</p>
+        <p>Crea una sublista de la lista principal.</p>
+        
         <pre>
-            <code class="language-css" >
-                public DoubleList sortList() { // 
+            <code class="language-css">
+                @Override
+                public DoubleList sortList() {
                     try{
                         Double[] a = new Double[size];
                         ListNodeDouble t = head;
@@ -383,34 +466,55 @@
                 }
             </code>
         </pre>
-        <p>Ordena los datos de la lista.</p>
+        <p>Ordena los datos almacenados en la lista.</p>
+        
         <pre>
-            <code class="language-css" >
-                public Iterator<ListNodeDouble> iterator() { // 
+            <code class="language-css">
+                @Override
+                public Iterator<ListNodeDouble> iterator() {
                     inode = head;
                     return new Iterator<ListNodeDouble>() {
                         @Override
                         public boolean hasNext() {
                             return inode.next != null;
                         }
-
-                        @Override
-                        public ListNodeDouble next() {
-                            if (inode != null) {
-                                ListNodeDouble tmp = inode;
-                                inode = inode.next;
-                                return tmp;
-                            } else {
-                                return null;
-                            }
-                        }
-                    };
+                    }
                 }
             </code>
         </pre>
-        <p>Permite recorrer los datos de la lista</p>
+        <p>Permite recorrer a través de los datos de la lista.</p>
+                
         <pre>
-            <code class="language-css" >
+            <code class="language-css">
+                @Override
+                public ListNodeDouble next() {
+                    if (inode != null) {
+                        ListNodeDouble tmp = inode;
+                        inode = inode.next;
+                        return tmp;
+                    } else {
+                        return null;
+                    }
+                }
+            </code>
+        </pre>
+        <p></p>
+                
+        <pre>
+            <code class="language-css">
+                public void rec(ListNodeDouble node) {
+                    if (node.next != null) {
+                        rec(node.next);
+                        // <- ;) ->
+                    }
+                    out.println(node.toString());
+                }
+            </code>
+        </pre>
+        <p></p>
+                
+        <pre>
+            <code class="language-css">
                 @Override
                 public String toString(){ 
                     String a = "null <-> ";
@@ -426,12 +530,15 @@
             }
             </code>
         </pre>
-        <p>...</p>
-        
-        <a href="/pythoncode/circularD.html">Python </a><a href="pythoncode/ListNode.html">ListNodePy </a> <a href="/C++/doblecircular.html">C++</a>
+        <p></p>
+                        
+                    
+
+
+            </code>
+        </pre>
+        <a href="/pythoncode/listade.html">Python </a><a href="pythoncode/ListNode.html">ListNodePy </a>
         <br>
-        <a href="/downloads/java/ListaCircularDoble.rar" download="ListaCircularDoble.rar" >Descargar código</a> 
+        <a href="{{url_for('static', filename='/downloads/java/ListaDoble.rar')}}" download="ListaDoble.rar" >Descargar código</a> 
     </div>
-    <script src="/javascript/prism.js"></script>
-</body>
-</html>
+{% endblock %}
