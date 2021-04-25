@@ -153,6 +153,7 @@ cite  {
   padding:7px 25px;
   text-decoration:none;
   text-shadow:0px 1px 0px #788005;
+  float:right;
   
  }
  .myButton2:hover {
@@ -166,4 +167,9 @@ cite  {
   top:1px;
  }
 
-
+h1  {
+  text-align: center;
+}
+.nav > li > a   {
+  text-align: center;
+}
