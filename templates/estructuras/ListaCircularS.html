@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="{{url_for('static', filename='prism.css')}}" rel="stylesheet" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Estructura de Datos</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/yeti/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="{{url_for('static', filename='estilos.css')}}">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="shortcut icon" href="img-style/descarga.png">
+</head>
+
+<body>
+      <!--Content-->
+      <div class="container">
+            <hr>
+            <!--Sección de Arboles Binarios-->
+            <!--Sección de Arboles n-arios-->
+            <section class="container" id="ListasSE" >
+                <h2 class="subtitulo">Listas Circular Simple</h2>
+                <div class="center">
+                    <img src="{{url_for('static', filename='Img-datos/circularsimple.png')}}" class="img-center" alt="" id="imgEstructura">                                          
+                </div>  
+                    <cite>Fig4: </cite> <p></p>
+                    
+                    <p>Las listas circulares son estructuras de datos en las que el último nodo apunta al primero lo cual la convierte en una lista sin fin, cada nodo siempre tiene uno anterior y uno siguiente, tiene una estructura muy similar a las listas simples por lo cual comparten características tanto en su implementación como en el manejo, aunque necesita de un mayor entendimiento de los punteros.</p>
+                    <br>
+                    <div class="center">
+                        <img src="{{url_for('static', filename='Img-datos/circularsimple.png')}}" class="img-center" alt="" id= "imgAnario" height="120px" width="200px">
+                    </div>
+                    <p>Características:
+                        <br>
+                        -	No existe ningún nodo que apunte a null.
+                        <br>
+                        -	La lista no tiene fin ya que al llegar al último nodo empieza de nuevo la lista.
+                        <br>
+                        -	Se accede a la lista mediante el primer nodo o también llamado inicio de la lista.
+                        <br>
+                        -	Si no se tiene cuidado al manejar la lista circular se pueden crear bucles infinitos.
+                        <br>
+                        -	No tiene acceso aleatorio es decir para acceder a un valor se debe recorrer toda la lista.
+                        
+                        <p></p>
+
+                    </p>
+                    <a href="{{url_for('listaC')}}">Ver código</a>
+
+        <br>
+        <a href="{{url_for('static', filename='downloads/java/ListaCircularSE.rar')}}" download="ListaCircularSE.rar" >Descargar código</a>
+            </section>   
+      </div>
+      <!--Content-->       
+
+</body>
+
+    <script src="{{url_for('static', filename='javascript/menu.js')}}"></script>
+    <script src="{{url_for('static', filename='javascript/prism.js')}}"></script>
+</html>

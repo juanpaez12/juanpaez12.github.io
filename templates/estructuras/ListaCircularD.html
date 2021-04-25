@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="{{url_for('static', filename='prism.css')}}" rel="stylesheet" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Estructura de Datos</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/yeti/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="{{url_for('static', filename='estilos.css')}}">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="shortcut icon" href="img-style/descarga.png">
+</head>
+
+<body>
+      <!--Content-->
+      <div class="container">
+            <hr>
+            <!--Sección de Arboles Binarios-->
+            <!--Sección de Arboles n-arios-->
+            <section class="container" id="ListasSE" >
+                <h2 class="subtitulo">Listas Circular Doblemente Enlazada</h2>
+
+                    <cite>Fig5: </cite> <p></p>
+                    
+                    <p>En este tipo de lista cada nodo tiene dos enlaces, similares a los de la lista doblemente enlazada, excepto que el enlace anterior del primer nodo apunta al último y el enlace siguiente del último nodo, apunta al primero. Como en una lista doblemente enlazada, las inserciones y eliminaciones pueden ser hechas desde cualquier punto con acceso a algún nodo cercano.</p>
+                    <br>
+                    <div class="center">
+                        <img src="{{url_for('static', filename='Img-datos/listacirculardoble.jpg')}}" class="img-center" alt="" id="imgEstructura">                                          
+                    </div>  
+                    <a href="{{url_for('listaCDo')}}">Ver código</a>
+
+        <br>
+        <a href="{{url_for('static', filename='downloads/java/ListaSimple.rar')}}" download="ListaSimple.rar" >Descargar código</a>
+            </section>   
+        </div>
+      <!--Content-->       
+
+</body>
+
+    <script src="{{url_for('static', filename='javascript/menu.js')}}"></script>
+    <script src="{{url_for('static', filename='javascript/prism.js')}}"></script>
+</html>

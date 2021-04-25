@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="{{url_for('static', filename='prism.css')}}" rel="stylesheet" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Estructura de Datos</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/yeti/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="{{url_for('static', filename='estilos.css')}}">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="shortcut icon" href="img-style/descarga.png">
+</head>
+
+<body>
+      <!--Content-->
+      <div class="container">
+            <hr>
+            <!--Sección de Arboles Binarios-->
+            <!--Sección de Arboles n-arios-->
+            <section class="container" id="ListasSE" >
+                <h2 class="subtitulo">Pilas</h2>
+
+                    <cite>Fig6: </cite> <p>https://sites.google.com/site/edatosubo/4-estructura-de-datos-dinamicas/2-pilas-o-stack-s </p>
+                    
+                    <p>Una pila es una colección de objetos que son insertados y removidos de acuerdo al principio “último en entrar, primero en salir”, LIFO (Last-in first-out).</p>
+                    <br>
+                    <div class="center">
+                        <img src="{{url_for('static', filename='Img-datos/PilasE.png')}}" class="img-center" alt="" id="imgEstructura" height="200px" width="200px">                                          
+                    </div>  
+                    <p></p>
+                    <p>Los objetos pueden ser insertados en una pila en cualquier momento, pero solamente el más reciente insertado, es decir, el último objeto puede ser removido en cualquier momento.</p>
+                    <p></p>
+                    <p>Una analogía de la pila es el dispensador de platos que se encuentra en eel mobiliario de alguna cafetería o cocina. Para este caso, las operaciones fundamentales involucran /push (Empujar) y /Pop (sacar) platos de la pila. Cuando se necesita un nuevo plato, se saca el plato que está encima de la pila y cuando se agrega un plato, se empuja hacia abajo en la pila para que se convierta en el nuevo plato de la cima.</p>
+                    <p></p>
+                    <p>Estos son los métodos principales de las pilas:
+                        <br>
+                        -	Push(e): Inserta el elemento e, para que sea la cima de la pila.
+                        <br>
+                        -	Pop(): quita el elemento de la cima de la pila y lo regresa; ocurrirá un error en caso tal la pila este vacía.
+                    </p>
+                    <p></p>
+                    <p>Aparte de esos métodos también tenemos los siguientes métodos:
+                        <br>
+                        -	Size(): Regresa el número de elementos en la pila.
+                        <br>
+                        -	IsEmpty(): Regresa un booleano indicando si la pila está vacía.
+                        <br>
+                        -	Top(): Regresa el elemento de la cima de la pila, sin removerlo; ocurrirá un error en caso tal la pila este vacía.
+                        </p>
+
+                    <a href="{{url_for('pila')}}">Ver código</a>
+
+        <br>
+        <a href="{{url_for('static', filename='downloads/java/ListaSimple.rar')}}" download="ListaSimple.rar" >Descargar código</a>
+            </section>   
+        </div>
+      <!--Content-->       
+
+</body>
+
+    <script src="{{url_for('static', filename='javascript/menu.js')}}"></script>
+    <script src="{{url_for('static', filename='javascript/prism.js')}}"></script>
+</html>

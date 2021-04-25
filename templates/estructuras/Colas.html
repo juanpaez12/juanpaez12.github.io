@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="{{url_for('static', filename='prism.css')}}" rel="stylesheet" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Estructura de Datos</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/yeti/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="{{url_for('static', filename='estilos.css')}}">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="shortcut icon" href="img-style/descarga.png">
+</head>
+
+<body>
+      <!--Content-->
+      <div class="container">
+            <hr>
+            <!--Sección de Arboles Binarios-->
+            <!--Sección de Arboles n-arios-->
+            <section class="container" id="ListasSE" >
+                <h2 class="subtitulo">Colas</h2>
+
+                    
+                    
+                    <p>Otra estructura de datos fundamental son las colas. Una cola es una colección de objetos que son insertados y removidos de acuerdo al principio primero en entrar, primero en salir, FIFO (first-in first-out). Los elementos pueden ser insertados en cualquier momento, pero solamente el elemento que ha estado en la cola más tiempo puede ser removido en cualquier momento.</p>
+                    <br>
+                    <div class="center">
+                        <img src="{{url_for('static', filename='Img-datos/ColasE.png')}}" class="img-center" alt="" id="imgEstructura" height="100px" width="200px">   
+                                                              
+                    </div>  
+                    <cite>Fig7: </cite> <p></p> 
+                    <p></p>
+                    <p>Los elementos que entran en una cola, son insertados por la parte de atrás y removidos por la parte del frente.</p>
+                    <p></p>
+                    <p>El tipo de dato abstracto cola defina una colección que guarda los objetos en una secuencia, donde el acceso al elemento y borrado están restringidos al primer elemento en la secuencia, el cual es llamado el frente de la cola, y la inserción del elemento está restringida al final de la secuencia, la cual es llamada la parte posterior de la cola.</p>
+                    <p></p>
+                    <p>Los dos principales métodos de las colas son las siguientes:
+                        <br>
+                        -	Enqueue(e): Inserta el elemento e en la parte posterior de la cola.
+                        <br>
+                        -	Dequeue(): quita el elemento del frente de la cola y lo regresa; un error ocurre si la cola está vacía.
+                    </p>
+                    <p></p>
+                    <p>Las colas cuentan con otros métodos que son los siguientes:
+                        <br>
+                        -	Size(): Regresa el número de elementos en la cola.
+                        <br>
+                        -	IsEmpty(): Regresa un booleano indicando si la cola está vacía.
+                        <br>
+                        -	Front(): Regresa el elemento del frente de la cola, sin removerlo; un error ocurre si la cola está vacía.
+                        </p>
+
+                    <a href="{{url_for('cola')}}">Ver código</a>
+
+        <br>
+        <a href="{{url_for('static', filename='downloads/java/ListaSimple.rar')}}" download="ListaSimple.rar" >Descargar código</a>
+            </section>   
+        </div>
+      <!--Content-->       
+
+</body>
+
+    <script src="{{url_for('static', filename='javascript/menu.js')}}"></script>
+    <script src="{{url_for('static', filename='javascript/prism.js')}}"></script>
+</html>

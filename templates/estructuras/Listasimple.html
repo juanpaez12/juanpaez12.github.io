@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="{{url_for('static', filename='prism.css')}}" rel="stylesheet" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Estructura de Datos</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/yeti/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="{{url_for('static', filename='estilos.css')}}">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="shortcut icon" href="img-style/descarga.png">
+</head>
+
+<body>
+      <!--Content-->
+      <div class="container">
+            <hr>
+            <!--Sección de Arboles Binarios-->
+            <!--Sección de Arboles n-arios-->
+            <section class="container" id="ListasSE" >
+                <h2 class="subtitulo">Listas Simplemente Enlazada</h2>
+                <div class="center">
+                    <img src="{{url_for('static', filename='Img-datos/listasimpleenlace.png')}}" class="img-center" alt="" id="imgEstructura">                                          
+                </div>  
+                    <cite>Fig2: </cite> <p></p>
+                    
+                    <p>Una lista simplemente enlazada es la más fundamental estructura basada en punteros, y del concepto fundamental de ésta derivan las demás estructuras.</p>
+                    <br>
+                    <div class="center">
+                        <img src="{{url_for('static', filename='Img-datos/Listsimple.png')}}" class="img-center" alt="" id= "imgAnario" height="120px" width="200px">
+                    </div>
+                    <p>Para solucionar algún problema como el presentado antes, se necesita una estructura que, al contrario de los arreglos, sea capaz de modificar su capacidad, es decir, que maneje los datos de forma dinámica. 
+                        Para conseguir esto nace la idea de una lista enlazada.
+                        <p></p>
+                        
+                        Un nodo es un objeto como cualquier otro y sus atributos serán los encargados de hacer el trabajo de almacenar y apuntar a otro nodo. Cada uno de los nodos tiene dos atributos: “contenido” que es usado para almacenar un objeto; y “siguiente”, usado para hacer referencia al siguiente nodo de la lista.
+                    </p>
+                    <div class="center">
+                        <img src="{{url_for('static', filename='Img-datos/Nodo.png')}}" class="img-center" alt="" id= "imgAnario" height="150px" width="200px">
+                    </div>
+                    <p>Una lista enlazada simple que almacena int’s se puede representar por medio del siguiente diagrama:</p>
+                    <div class="center">
+                        <img src="{{url_for('static', filename='Img-datos/ListaEJ.png')}}" class="img-center" alt="" id= "imgAnario" height="250px" width="200px">
+                    </div>
+
+
+                    <a href="{{url_for('listase')}}">Ver código</a>
+
+        <br>
+        <a href="{{url_for('static', filename='downloads/java/ListaSimple.rar')}}" download="ListaSimple.rar" >Descargar código</a>
+            </section>   
+      </div>
+      <!--Content-->       
+
+</body>
+
+    <script src="{{url_for('static', filename='javascript/menu.js')}}"></script>
+    <script src="{{url_for('static', filename='javascript/prism.js')}}"></script>
+</html>
