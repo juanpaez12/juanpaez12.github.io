@@ -18,6 +18,10 @@ def listase():
 def listasep():
     return render_template('pythoncode/listase.html')
 
+@app.route('/ListaEC')
+def listaEC():
+    return render_template('C++/Listasimplec.html')
+
 @app.route('/ListaDobleEnlazada')
 def listade():
     return render_template('code/listade.html')
@@ -29,6 +33,10 @@ def listad():
 @app.route('/ListaDp')
 def listadp():
     return render_template('/pythoncode/listade.html')
+
+@app.route('/ListaEDC')
+def listaEDC():
+    return render_template('C++/Listasdoblec.html')
 
 @app.route('/ListaCircularSimple')
 def listaC():
@@ -90,9 +98,16 @@ def colap():
     return render_template('pythoncode/colas.html')
 
 
-@app.route('/ArbolBinario')
-def binario():
+@app.route('/ArbolBinarioE')
+def binarioE():
+    return render_template('estructuras/Arbolbi.html')
+@app.route('/ArbolBinarioC')
+def binarioc():
     return render_template('code/arbolbi.html')
+
+@app.route('/ArbolBinarioP')
+def ArbolBinarioP():
+    return render_template('pythoncode/arbolbi.html')
 
 @app.route('/Simple')
 def simple():

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="{{url_for('static', filename='prism.css')}}" rel="stylesheet" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Estructura de Datos</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/yeti/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="{{url_for('static', filename='estilos.css')}}">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="shortcut icon" href="img-style/descarga.png">
+</head>
+
+<body>
+      <!--Content-->
+      <div class="container">
+            <hr>
+            <!--Sección de Arboles Binarios-->
+            <!--Sección de Arboles n-arios-->
+            <section class="container" id="ListasSE" >
+                <h2 class="subtitulo">Pilas</h2>
+
+
+                    
+                    <p>Un árbol binario es un árbol ordenado con las siguientes propiedades: 
+                        <br>
+                       - Cada nodo tiene a lo mas dos hijos. 
+                       <br>
+                       - Cada nodo hijo esta etiquetado ya se como un hijo izquierdo o como un hijo derecho. 
+                       <br>
+                       - Un hijo izquierdo precede a un hijo derecho en el ordenamiento de los hijos de un nodo. </p>
+                    <br>
+                    <div class="center">
+                        <img src="{{url_for('static', filename='Img-datos/Arbolbi.png')}}" class="img-center" alt="" id="imgEstructura" height="200px" width="200px">                                          
+                    </div>  
+                    <p></p>
+                    <p>El subárbol enraizado en un hijo izquierdo o un hijo derecho de un nodo interno v es llamado un subárbol izquierdo o subárbol derecho, respectivamente.</p>
+                    <p></p>
+                    <p>El subárbol enraizado en un hijo izquierdo o un hijo derecho de un nodo interno v es llamado un subárbol izquierdo o subárbol derecho, respectivamente, de v. </p>
+                    <p></p>
+                    <p>Un árbol binario es propio si cada nodo tiene cero o dos hijos. Algunos autores también se refieren a tales árboles como arboles binarios completos. </p>
+                    <p></p>
+                    <p>Así, en un árbol binario propio, cada nodo interno tiene exactamente dos hijos.</p>
+                    <p></p>
+
+                    <a href="{{url_for('binarioc')}}">Ver código</a>
+
+        <br>
+        <a href="{{url_for('static', filename='downloads/java/ListaSimple.rar')}}" download="ListaSimple.rar" >Descargar código</a>
+            </section>   
+        </div>
+      <!--Content-->       
+
+</body>
+
+    <script src="{{url_for('static', filename='javascript/menu.js')}}"></script>
+    <script src="{{url_for('static', filename='javascript/prism.js')}}"></script>
+</html>
