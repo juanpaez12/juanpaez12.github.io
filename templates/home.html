@@ -1,12 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link href="{{url_for('static', filename='prism.css')}}" rel="stylesheet" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Estructura de Datos</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/yeti/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="{{url_for('static', filename='estilos.css')}}">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="shortcut icon" href="img-style/descarga.png">
 </head>
 <body>
-    
-</body>
+    <div class="header">
+        <nav class="navbar navbar-expand-lg navbar-collapse bg-secondary">
+            <div class="icon" >
+                <a class="navbar-brand" href="#"><img src="{{url_for('static', filename='img-style/aprendeconupb.png')}}" class="icon" width="250" height="100" alt=""></a>                
+            </div> 
+                <nav class="opciones ml-auto" style="font-size: medium;">
+                    <ul class="navbar-nav" >
+                        <li class=" nav-item" >
+                            <a class="nav-link " href="{{url_for('index')}}">Estructuras</a>
+                        </li>
+                        <li class="nav-item" >
+                            <a class="nav-link" href="">Transformaciones</a>
+                        </li> 
+                    </ul>                                  
+                </nav>                           
+        </nav>
+    </div>
+    <div class="container" >
+         <!--Tema principal-->
+        <h2 class="my-5 text-center text-primary" >Estructura de Datos</h2>
+        <hr>
+        <!---->
+        <div class="row" ></div> 
+        <!--Sección de inicio-->
+        <section class="container" id="Inicio" >
+            <h2 class="subtitulo">¿Qué es una estructura de datos?</h2>
+            <div class="center">
+                <img src="{{url_for('static', filename='Img-datos/estructuradedatos.png')}}" class="img-center" alt="" id= "imgEstructura" >  
+                                                       
+            </div>   
+            <cite>Fig1: https://estructurayorganizaciondedatos.blogspot.com/2013/09/unidad-i-fundamentos-de-estructura-de.html</cite> <p></p>
+             <p>Las estructuras de datos son una forma de organizar los datos en la computadora, de tal manera que nos permita realizar unas        operaciones con ellas de forma  muy eficiente.
+                Es decir, igual que un array introducimos un dato y eso es prácticamente inmediato, no siempre lo es, según qué estructuras de datos y qué operaciones.
+                Depende que algoritmo queramos ejecutar, habrá veces que sea mejor utilizar una estructura de datos u otra estructura que nos permita más velocidad.
+                Por este motivo es interesante conocer algo más que simplemente los arrays o los hashmaps que casi todo el mundo conoce.
+            </p>           
+        </section>
+        <hr>
+        <!--Sección de inicio--></div>
+</body>    
 </html>
