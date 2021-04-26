@@ -114,6 +114,10 @@ def colap():
 def binarioE():
     return render_template('estructuras/Arbolbi.html')
 
+@app.route('/ArbolBinarioC')
+def binarioc():
+    return render_template('code/arbolbi.html')
+
 
 
 @app.route('/Simple')
