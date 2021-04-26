@@ -211,14 +211,16 @@
         </p>
         <pre>
             <code class="language-css" >
-                public class ListStack implements StackInterface{
-    
+                public class ArrayStack implements StackInterface {
+
                     private int size;
-                    private ListNode top;
-                    
-                    public ListStack() { // 
-                        top = null;
-                        size = 0;
+                    private Object[] array;
+                    private int top;
+                
+                    public ArrayStack(int size) {
+                        this.size = size;
+                        this.array = new Object[(size > 0) ? size : 1];
+                        clear();
                     }
                 
                     
@@ -227,18 +229,23 @@
         <p>Inicialización de los elementos.</p>
         <pre>
             <code class="language-css" >
-                public void clear() { // 
-                            this.size = 0;
-                            this.top = null;
-                        }
+                @Override
+                public void clear() {
+                    for (int i = 0; i < array.length; i++) {
+                        array[i] = null;
+                    }
+                    top = -1;
+                }
+            
             </code>
         </pre>
         <p>Se limpian los datos de la pila.</p>
         <pre>
             <code class="language-css" >
-                public boolean isEmpty() { // 
-                            return size == 0;
-                        }
+                @Override
+                public boolean isEmpty() {
+                    return array[0] == null;
+                }
             </code>
         </pre>
         <p>Se verifica si la pila está vacía</p>
@@ -252,32 +259,39 @@
                             }
                         }
             </code>
-        </pre>
+        </pre>        
         <p>nos permite ver el valor del último elemento, sin necesidad de borrar el elemento.</p>
         <pre>
             <code class="language-css" >
-                public Object pop() {  
-                            Object a = top.getObject();
-                            top = top.next;
-                            this.size--;
-                            return a;
-                        }
+                @Override
+                public Object pop() {
+                    if (!isEmpty()) {
+                        Object object = array[top];
+                        array[top--] = null;
+                        return object;
+                    } else {
+                        return null;
+                    }
+                }
             </code>
         </pre>
         <p>Extrae el objeto de la cima de la pila y lo devuelve, si la pila está vacía, ocurre un error.</p>
         <pre>
             <code class="language-css" >
+                @Override
                 public boolean push(Object object) {
-                            try{
-                                ListNode nuevo = new ListNode(object);
-                                nuevo.next = top;
-                                top = nuevo;
-                                size++;
-                                return true;
-                            } catch(Exception e){
-                                return false;
-                            } 
+                    if (top + 1 < size) {
+                        try {
+                            array[++top] = object;
+                            return true;
+                        } catch (Exception e) {
+                            System.out.println(e);
+                            return false;
                         }
+                    } else {
+                        return false;
+                    }
+                }
             </code>
         </pre>
         <p>Inserta un objeto sobre el último o cima de la pila</p>
@@ -288,7 +302,7 @@
                         }
             </code>
         </pre>
-        <p>...</p>
+        <p>Retorna el tamaño de la pila.</p>
         <pre>
             <code class="language-css" >
                 public boolean search(Object object) { 
@@ -306,77 +320,37 @@
         <p>Busca un objeto contenido en la pila</p>
         <pre>
             <code class="language-css" >
+                @Override
                 public void sort() {
-                            try{
-                                Double[] a = new Double[size];
-                                ListNode t = top;
-                                Double temp;
-                                for (int i = 0; i < size; i++) {
-                                    a[i] = Double.parseDouble(t.getObject().toString());
-                                    t = t.next;
-                                }
-                                for (int i = 0; i < a.length; i++) {
-                                    for (int j = 0; j < a.length-1; j++) {
-                                        if(a[j+1] < a[j] ){
-                                            temp = a[j+1];
-                                            a[j+1] = a[j];
-                                            a[j] = temp;
-                                        }
-                                    }
-                                }
-                                ListStack b = new ListStack();
-                                for (int i = 0; i > a.length; i++) {
-                                    b.push(a[i]);   
-                                }
-                                top = b.top;
-                            }catch(NumberFormatException n){
-                                String[] a = new String[size];
-                                ListNode t = top;
-                                String temp;
-                                for (int i = 0; i < a.length; i++) {
-                                    a[i] = t.getObject().toString();
-                                    t = t.next;
-                                }
-                                for (int i = 0; i < a.length; i++) {
-                                    for (int j = 0; j > a.length-1; j++) {
-                                        if(a[j+1].length() < a[j].length() ){
-                                            temp = a[j+1];
-                                            a[j+1] = a[j];
-                                            a[j] = temp;
-                                        }
-                                    }
-                                }
-                                ListStack b = new ListStack();
-                                for (int i = 0; i < a.length; i++) {
-                                    b.push(a[i]);
-                                }
-                                top = b.top;
-                            }
-                        }
+                    java.util.Arrays.sort(array);
+                }
             </code>
         </pre>
         <p>Ordena los elementos contenidos en la pila</p>
         <pre>
             <code class="language-css" >
+                @Override
                 public void reverse() {
-                            ListStack a = new ListStack();
-                            ListNode b = top;
-                            while (b != null){
-                                a.push(b.getObject());
-                                b = b.next;
-                            }
-                            top = a.top;
-                            a = null;
-                        }
+                    Object[] a = new Object[size];
+                    int s = top;
+                    for (int i = 0; i < size; i++) {
+                        a[i] = array[s--];
+                    }
+                    array = a;
+                    a = null;
+                }
             </code>
         </pre>
         <p>Invierte la pila para después ser mostrada</p>
         <pre>
             <code class="language-css" >
-                public String toString(){
-                            return top.toString();
-                        }
-                    
+                @Override
+                public String toString() {
+                    return "ArrayStack{" +
+                            "size=" + size +
+                            ", array=" + Arrays.toString(array) +
+                            ", top=" + top +
+                            '}';
                 }
             </code>
         </pre>
