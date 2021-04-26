@@ -18,8 +18,22 @@
     <div class="header">
         <nav class="navbar navbar-expand-lg navbar-collapse bg-secondary">
             <div class="icon" >
-                <a class="navbar-brand" href="#"><img src="{{url_for('static', filename='img-style/aprendeconupb.png')}}" class="icon" width="250" height="100" alt=""></a>                
-            </div>   
+                <a class="navbar-brand" href="#"><img src="{{url_for('static', filename='img-style/aprendeconupb.png')}}" class="icon" width="250" height="100" alt=""></a>
+
+            </div>
+            <nav class="enlaces m-auto" style="font-size: medium;">
+                <ul class="navbar-nav" >
+                    <li class=" nav-item" >
+                        <a class="nav-link" href="{{url_for('home')}}">Inicio</a>
+                    </li>
+                    <li class="nav-item" >
+                        <a class="nav-link" href="{{url_for('index')}}">Estructuras</a>
+                    </li> 
+                    <li class="nav-item" >
+                        <a class="nav-link" href="{{url_for('modulo3')}}">Transformaciones</a>
+                    </li> 
+                </ul>                                  
+            </nav>    
                 <img src="{{url_for('static', filename='hamburguesa.svg')}}" alt="" class="hamburguesa" >
                 <nav class="menu" style="font-size: medium;">
                     
@@ -33,6 +47,9 @@
                                       
                 </nav>                           
       </nav>
+                 
+                                
+
     </div>
       <!--Menú-->
       <!--Content-->
