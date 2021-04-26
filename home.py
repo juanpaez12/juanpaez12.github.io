@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, flash, redirect, url_for
+from flask import Flask, render_template, request, flash, redirect, url_for, send_file
 
 import os
 
@@ -162,6 +162,10 @@ def xmlGrafo():
     os.remove(path)
     return render_template('graphml.html')
     
+@app.route('/Download')
+def Download():
+    return send_file('static/downl')
+
 
 @app.route('/Transformaciones')
 def modulo3():
