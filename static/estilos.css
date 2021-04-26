@@ -170,6 +170,19 @@ cite  {
 h1  {
   text-align: center;
 }
-.nav > li > a   {
-  text-align: center;
+p {
+  line-height: 1.5;
+}
+.file-container {
+  top: 100px;
+  float: middle;
+  padding: 60px;
+  border: 5px solid rgb(85, 163, 251);
+  border-radius: 10px;
+  left:0%;
+  position: relative;
+  width: 800px;
+  box-shadow:  5px 10px 8px #20a4e2;
+   
+
 }

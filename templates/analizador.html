@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="{{url_for('static', filename='prism.css')}}" rel="stylesheet" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Transformaciones</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/yeti/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="{{url_for('static', filename='estilos.css')}}">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="shortcut icon" href="img-style/descarga.png">
+</head>
+<body>
+    <div class="header">
+        <nav class="navbar navbar-expand-lg navbar-collapse bg-secondary">           
+                <nav class="enlaces m-auto" style="font-size: medium;">
+                    <ul class="navbar-nav" >
+                        <li class=" nav-item" >
+                            <a class="nav-link" href="{{url_for('home')}}">Inicio</a>
+                        </li>
+                        <li class="nav-item" >
+                            <a class="nav-link" href="{{url_for('index')}}">Estructuras</a>
+                        </li> 
+                    </ul>                                  
+                </nav>                           
+        </nav>
+    </div>
+    <div class="container" >
+        <form class="file-container m-auto text-center" action="/Grafo" method="POST" enctype="multipart/form-data">
+            <input type="file" name="archivo" accept=".py">
+            <input type="submit" value="Crear grafo">
+    </div>
+</body>    
+</html>

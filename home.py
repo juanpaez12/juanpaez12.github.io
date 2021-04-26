@@ -113,6 +113,10 @@ def ArbolBinarioP():
 def simple():
     return render_template('estructuras/Listasimple.html')
 
+@app.route('/analizador')
+def analizador():
+    return render_template('analizador.html')
+
 
 if __name__ == '__main__':
     app.run(debug=True)
