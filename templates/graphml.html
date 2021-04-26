@@ -1,5 +1,6 @@
 {% extends "layout.html" %}
 {% block content %}
+
 <div class="header">
     <nav class="navbar navbar-expand-lg navbar-collapse bg-secondary">           
             <nav class="enlaces m-auto" style="font-size: medium;">
@@ -18,7 +19,7 @@
     </nav>
 </div>
 <div class="container">
-    <img height="800" width="800"src="{{url_for('static',filename='graph.png')}}" alt="Grafo">
+    <img height="800" width="800" src="{{url_for('static',filename='GraphXML.png')}}" alt="Grafo">
 
     <table class="default">
         <tr>           
@@ -38,7 +39,8 @@
             <td>Atributos</td>
         </tr>
     </table>
-
+         
+  
 
     <div class="footer">     
         <div class="card-body" style="background-color:rgb(212, 212, 212)" >
@@ -47,6 +49,6 @@
             <p class="small m-0" >Juan Esteban Páez Albarracín</p>
             <p class="small " >Jossyr Rafael Pinto Caddevila</p>
         </div>       
-    </div> 
-
+    </div>
+    
 {% endblock %}

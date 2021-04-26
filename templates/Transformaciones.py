@@ -5,6 +5,7 @@
 import networkx as nx
 import matplotlib.pyplot as plt
 import sys
+from networkx.readwrite import json_graph
 
 ruta = sys.argv
 url = "templates/ArchivosPython/" + ruta[1]
@@ -86,7 +87,12 @@ nx.draw(G, pos, node_size=600, node_color=color_node, font_size=8, font_weight='
 
 plt.tight_layout()
 
-plt.savefig("static/Graph.png", format="PNG", dpi= 500)
+plt.savefig("static/Graph.png", format="PNG", dpi= 300)
+
+
+
+
+
 
 
 

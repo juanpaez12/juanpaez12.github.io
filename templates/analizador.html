@@ -13,7 +13,7 @@
     <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
 
 </head>
-<body>
+<body >
     <div class="header">
         <nav class="navbar navbar-expand-lg navbar-collapse bg-secondary">           
                 <nav class="enlaces m-auto" style="font-size: medium;">
@@ -32,31 +32,28 @@
         
 
         <form class="file-container m-auto text-center" action="/Grafo" method="POST" enctype="multipart/form-data" >
-            <h1 style="padding: 3rem 1.5rem;text-align: center;font-size: 40px;font-family: Arial, Helvetica, sans-serif;">Analizar Código Python</h1>
+            <h1 style="font-size: 40px;font-family: Arial, Helvetica, sans-serif;">Analizar Código Python</h1>
             
-            <input type="file" name="archivo" accept=".py"style="padding: 0.1rem 1.5rem;text-align: center;" >
-            <input class="myButton2" type="submit" value="Analizar" style="position: relative;top: 50px;left: -180px;">
+            <input type="file" name="archivo" accept=".py"style="text-align: center;" >
+            <input class="myButton2" type="submit" value="Analizar" style="position: relative;top: 30px;left: -280px;">
         </form>
     </div>
-    <div class="container" style="padding: 3rem 1.5rem" >
+    <div class="container" style="top: 50px;position: relative;" >
         
 
-        <form class="file-container m-auto text-center" action="/Grafo" method="POST" enctype="multipart/form-data" >
-            <h1 style="padding: 3rem 1.5rem;text-align: center;font-size: 40px;font-family: Arial, Helvetica, sans-serif;">Analizar Metalenguaje JSON</h1>
+        <form class="file-container m-auto text-center" action="/grafo" method="POST" enctype="multipart/form-data" >
+            <h1 style="font-size: 40px;font-family: Arial, Helvetica, sans-serif;">Analizar Metalenguaje Graphml</h1>
             
-            <input type="file" name="archivo" accept=".py"style="padding: 0.1rem 1.5rem;text-align: center;" >
-            <input class="myButton2" type="submit" value="Analizar" style="position: relative;top: 50px;left: -180px;">
+            <input type="file" name="xml" accept=".graphml"style="text-align: center;" >
+            <input class="myButton2" type="submit" value="Analizar" style="position: relative;top: 30px;left: -280px;">
         </form>
     </div>
-    <div class="footer">     
-        <div class="card-body" style="background-color:rgb(212, 212, 212)" >
-        <h2 style="font-size: medium;" class="brand mb-3">Realizado por estudiantes de tercer semestre</h2>
-            <p class="small m-0" >Omar Freddy Nova Bustamante</p>
-            <p class="small m-0" >Juan Esteban Páez Albarracín</p>
-            <p class="small " >Jossyr Rafael Pinto Caddevila</p>
-        </div>       
-    </div> 
-    <!--Footer-->
+    <div class="container" style="top: 250px;position: relative;">
+        <h3>¿Qué es Graphml?</h3>
+        <p>Graphml es un formato de XML utilizado para describir gráficos. Se puede utilizar para crear grafos dirigidos, no drigidos y mixtos, además de gráficos jerarquicos.</p>
+
+    </div>
+
 </body>   
     <script src="{{url_for('static', filename='javascript/menu.js')}}"></script>
       

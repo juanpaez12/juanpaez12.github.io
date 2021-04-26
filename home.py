@@ -136,6 +136,24 @@ def informacion():
     os.system(url)
     os.remove(path)
     return render_template('grafo.html')
+
+@app.route('/grafo', methods=['GET', 'POST'])
+def xmlGrafo():
+    error = None
+    if request.method == "POST":
+        f = request.files["xml"]
+        if f.filename == "":
+            
+            return redirect(url_for('modulo3'))
+        
+        filename = secure_filename(f.filename)
+        path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+        f.save(path)
+
+    url = "python templates/XML.py " + filename
+    os.system(url)
+    os.remove(path)
+    return render_template('graphml.html')
     
 
 @app.route('/Transformaciones')
