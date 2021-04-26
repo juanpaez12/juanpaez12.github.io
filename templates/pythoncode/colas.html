@@ -25,7 +25,7 @@
                         pass
                     
                     @abstractmethod
-                    def search(self,Object):
+                    def search(self,object):
                         pass
                     
                     @abstractmethod
@@ -33,7 +33,7 @@
                         pass
                         
                     @abstractmethod
-                    def insert(self,Object):
+                    def insert(self,object):
                         pass
                 
                 
@@ -86,9 +86,9 @@
                             return None
                         
                         
-                    def insert(self,Object):
+                    def insert(self,object):
                         try:
-                            nodoInsertado = ListNode.NodeObject(Object)
+                            nodoInsertado = ListNode.NodeObject(object)
                             if self.isEmpty() == False :
                                 self.bot.Next = nodoInsertado
                             else:
@@ -123,10 +123,10 @@
                         else:
                             return None
                     
-                    def search(self, Object) :
+                    def search(self, object) :
                         a = self.top
                         while a != null :
-                            if a.getObject()  == Object :
+                            if a.getObject()  == object :
                                 return true
                             
                             a = a.Next
