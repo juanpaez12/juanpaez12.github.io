@@ -10,6 +10,10 @@
     <link rel="stylesheet" href="{{url_for('static', filename='estilos.css')}}">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link rel="shortcut icon" href="img-style/descarga.png">
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+
+
+
 </head>
 <body>
     <div class="header">
@@ -27,9 +31,24 @@
         </nav>
     </div>
     <div class="container" >
-        <form class="file-container m-auto text-center" action="/Grafo" method="POST" enctype="multipart/form-data">
-            <input type="file" name="archivo" accept=".py">
-            <input type="submit" value="Crear grafo">
+        
+
+        <form class="file-container m-auto text-center" action="/Grafo" method="POST" enctype="multipart/form-data" >
+            <h1 style="padding: 3rem 1.5rem;text-align: center;font-size: 40px;font-family: Arial, Helvetica, sans-serif;">Analizar Código Python</h1>
+            
+            <input type="file" name="archivo" accept=".py"style="padding: 0.1rem 1.5rem;text-align: center;" >
+            <input class="myButton2" type="submit" value="Analizar" style="position: relative;top: 50px;left: -180px;">
+        </form>
+    </div>
+    <div class="container" style="padding: 3rem 1.5rem" >
+        
+
+        <form class="file-container m-auto text-center" action="/Grafo" method="POST" enctype="multipart/form-data" >
+            <h1 style="padding: 3rem 1.5rem;text-align: center;font-size: 40px;font-family: Arial, Helvetica, sans-serif;">Analizar Metalenguaje JSON</h1>
+            
+            <input type="file" name="archivo" accept=".py"style="padding: 0.1rem 1.5rem;text-align: center;" >
+            <input class="myButton2" type="submit" value="Analizar" style="position: relative;top: 50px;left: -180px;">
+        </form>
     </div>
 </body>    
 </html>
