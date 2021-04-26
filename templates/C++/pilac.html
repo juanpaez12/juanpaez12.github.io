@@ -1,0 +1,151 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <title>Pilas</title></head>
+    <div class="header">
+        <nav class="navbar navbar-expand-lg navbar-collapse bg-secondary">           
+                <nav class="enlaces m-auto" style="font-size: medium;">
+                    <ul class="navbar-nav" >
+                        <li class=" nav-item" >
+                            <a class="nav-link" href="{{url_for('home')}}">Inicio</a>
+                        </li>
+                        <li class="nav-item" >
+                            <a class="nav-link" href="{{url_for('index')}}">Estructuras</a>
+                        </li> 
+                        <li class="nav-item" >
+                            <a class="nav-link" href="{{url_for('modulo3')}}">Transformaciones</a>
+                        </li> 
+                    </ul>                                  
+                </nav>                           
+        </nav>
+    </div>
+
+    <div class="container" >    
+        <pre>
+            <code class="language-css" >
+
+                <h1>Código Pilas</h1>
+                #include "ListNode.hpp"
+
+                using namespace std;
+                
+                template<typename T>
+                class ListStack{
+                    private:
+                        ListNode<T>* top;
+                        int size;
+                    public:
+                        ListStack(){
+                        }
+                        void clear(){
+                            size = 0;
+                            top = NULL;
+                        }
+                        bool isEmpty(){
+                            return top == NULL;
+                        }
+                        T peek(){
+                            if(!isEmpty()){
+                                return top->getObject();
+                            }else{
+                                return NULL;
+                            }
+                            
+                        }
+                
+                        T pop(){
+                            T a = top->getObject();
+                            top = top->next;
+                            size--;
+                            return a;
+                        }
+                
+                        bool push(T _object){
+                            try {
+                                ListNode<T> *nuevo = new ListNode<T>;
+                                nuevo->next = top;
+                                top = nuevo;
+                                size++;
+                                return true;
+                            }
+                            catch(exception& e) {
+                                return false;
+                            }
+                
+                        }
+                
+                        int Size(){
+                            return size;
+                        }
+                
+                        bool search(T object) {
+                            ListNode<T>* a = top;
+                            while(a != null){
+                                if(a->getObject()  == object){
+                                    return true;
+                                }
+                                a = a->next;
+                            }
+                                return false; 
+                            }
+                
+                        void reverse() {
+                            ListStack* a = new ListStack();
+                            ListNode<T>* b = top;
+                            while (b != null){
+                                a->push(b->getObject());
+                                b = b->next;
+                            }
+                            top = a->top;
+                            a = NULL;
+                        }
+                
+                        void sort(){
+                
+                            T *arr[size];
+                            ListNode<T>* t = head;
+                            for (int i = 0; i < size; ++i)
+                            {
+                                arr[i] = t->getObject();
+                                t = t->next;
+                            }
+                
+                            List* l = new List();
+                            for (int i = 0; i < size; ++i)
+                            {
+                                for (int j = 0; j < size-1; ++j)
+                                {
+                                    T temp = arr[j];
+                                    arr[j] = arr[j+1];
+                                    arr[j+1] = temp;
+                                }
+                            }
+                
+                            for (int i = 0; i < getSize(); ++i)
+                            {
+                                l->add(arr[i]);
+                            }
+                            top = l;
+                        }
+                
+                        
+                
+                
+                };       
+            </code>
+        </pre>
+        
+        <br>
+        <p><a href="{{url_for('static', filename='downloads/Stack - C++.rar')}}" download="Pilas.rar" >Descargar código</a> </p>
+        <div class="footer">     
+            <div class="card-body" style="background-color:rgb(212, 212, 212)" >
+            <h2 style="font-size: medium;" class="brand mb-3">Realizado por estudiantes de tercer semestre</h2>
+                <p class="small m-0" >Omar Freddy Nova Bustamante</p>
+                <p class="small m-0" >Juan Esteban Páez Albarracín</p>
+                <p class="small " >Jossyr Rafael Pinto Caddevila</p>
+            </div>       
+        </div> 
+        <!--Footer-->  
+        <script src="{{url_for('static', filename='javascript/menu.js')}}"></script>
+        
+{% endblock %}

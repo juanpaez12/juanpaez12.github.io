@@ -1,0 +1,179 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <title>Colas</title></head>
+    <div class="header">
+        <nav class="navbar navbar-expand-lg navbar-collapse bg-secondary">           
+                <nav class="enlaces m-auto" style="font-size: medium;">
+                    <ul class="navbar-nav" >
+                        <li class=" nav-item" >
+                            <a class="nav-link" href="{{url_for('home')}}">Inicio</a>
+                        </li>
+                        <li class="nav-item" >
+                            <a class="nav-link" href="{{url_for('index')}}">Estructuras</a>
+                        </li> 
+                        <li class="nav-item" >
+                            <a class="nav-link" href="{{url_for('modulo3')}}">Transformaciones</a>
+                        </li> 
+                    </ul>                                  
+                </nav>                           
+        </nav>
+    </div>
+
+    <div class="container" >    
+        <pre>
+            <code class="language-css" >
+
+                <h1>Código Colas</h1>
+
+                #include "ListNode.hpp"
+
+                using namespace std;
+                
+                
+                template<typename T>
+                class ListQueue{
+                
+                private:
+                    int size;
+                    ListNode<T>* top;
+                    ListNode<T>* bot;
+                
+                public:
+                    
+                    ListQueue() {
+                        clear();
+                    }
+                    
+                    
+                    void clear() {
+                        size = 0;
+                        top = NULL;
+                        bot = NULL;
+                    }
+                
+                    
+                    bool isEmpty() {
+                        return top == NULL;
+                    }
+                
+                    
+                    T extract() {
+                        try{
+                            if(!isEmpty()){
+                                T a = top->getObject();
+                                top = top->next;
+                                size--;
+                                return a;
+                            }else{
+                                return NULL;
+                            }    
+                        }catch(exception& e){
+                            return NULL;
+                        }
+                
+                    }
+                
+                    
+                    bool insert(T object) {
+                        try{
+                            ListNode<T>* nodoInsertado = new ListNode(object);
+                            if(!isEmpty()){
+                                bot->next = nodoInsertado;
+                            }else{
+                                top = nodoInsertado;
+                            }
+                            bot = nodoInsertado;
+                            size++;
+                            return true;
+                        }catch(exception& e){
+                            return false;
+                        }
+                    }
+                
+                    
+                    int size() {
+                        return size;
+                    }
+                
+                    
+                    bool search(Object object) {
+                        
+                        try{
+                            if(!isEmpty()){
+                                ListNode<T> a = top;
+                                while(a != null){
+                                    if(a->getObject()->equals(object)){
+                                        return true;
+                                    }
+                                    a = a->next;
+                                }
+                                return false;
+                            }else{
+                                return false;
+                            }
+                        }catch(exception& e){
+                            return false;
+                        }
+                    }
+                
+                    
+                    void sort() {
+                            T *arr[size];
+                            ListNode<T>* t = head;
+                            for (int i = 0; i < size; ++i)
+                            {
+                                arr[i] = t->getObject();
+                                t = t->next;
+                            }
+                
+                            List* l = new List();
+                            for (int i = 0; i < size; ++i)
+                            {
+                                for (int j = 0; j < size-1; ++j)
+                                {
+                                    T temp = arr[j];
+                                    arr[j] = arr[j+1];
+                                    arr[j+1] = temp;
+                                }
+                            }
+                
+                            for (int i = 0; i < getSize(); ++i)
+                            {
+                                l->add(arr[i]);
+                            }
+                            top = l;
+                        }
+                
+                    void reverse() {
+                        if(!isEmpty()){
+                            T *array[size];
+                            ListNode<T>* t = head;
+                            for (int i = 0; i < size; ++i)
+                            {
+                                array[i] = t->getObject();
+                                t = t->next;
+                            }
+                            top = NULL;
+                            for (int i = size-1; i > -1; i--) {
+                                insert(array[i]);
+                            }  
+                        }
+                    }      
+            </code>
+        </pre>
+        
+        <br>
+        <p><a href="{{url_for('static', filename='downloads/Queue - C++.rar')}}" download="Colas.rar" >Descargar código</a> </p>
+        <div class="footer">     
+            <div class="card-body" style="background-color:rgb(212, 212, 212)" >
+            <h2 style="font-size: medium;" class="brand mb-3">Realizado por estudiantes de tercer semestre</h2>
+                <p class="small m-0" >Omar Freddy Nova Bustamante</p>
+                <p class="small m-0" >Juan Esteban Páez Albarracín</p>
+                <p class="small " >Jossyr Rafael Pinto Caddevila</p>
+            </div>       
+        </div> 
+        <!--Footer-->  
+        <script src="{{url_for('static', filename='javascript/menu.js')}}"></script>
+        
+{% endblock %}

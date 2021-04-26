@@ -76,13 +76,15 @@ def listaCDP():
 def listaCDC():
     return render_template('C++/doblecircular.html')
 
-@app.route('/ArbolAVL')
-def arbolAVL():
-    return render_template('code/arbolAVL.html')
 
 @app.route('/Pilas')
 def pila():
     return render_template('code/pilaA.html')
+
+@app.route('/PilasC')
+def pilaC():
+    return render_template('C++/pilac.html')
+
 @app.route('/PilaE')
 def PilaE():
     return render_template('estructuras/Pilas.html')
@@ -94,6 +96,10 @@ def PilaP():
 @app.route('/Colas')
 def cola():
     return render_template('code/colas.html')
+
+@app.route('/ColasC')
+def colaC():
+    return render_template('C++/colaC.html')
 
 @app.route('/Colase')
 def colae():
@@ -107,6 +113,7 @@ def colap():
 @app.route('/ArbolBinarioE')
 def binarioE():
     return render_template('estructuras/Arbolbi.html')
+
 @app.route('/ArbolBinarioC')
 def binarioc():
     return render_template('code/arbolbi.html')

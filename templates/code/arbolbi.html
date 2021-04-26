@@ -1,22 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <link href="/prism.css" rel="stylesheet" />
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% extends "layout.html" %}
+
+{% block content %}
     <title>Arboles binarios</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/yeti/bootstrap.min.css">
-    
-    <link rel="stylesheet" href="estilos.css">
-    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-</head>
-<body>
     <div class="container" >
         
         <h1>Arbol binario</h1>
-        <a href="{{url_for('ArbolBinarioP')}}" class="myButton2" >Python</a>
-       
+        
         <pre>
             <code class="language-css" >
                 import javax.print.DocFlavor;
@@ -177,7 +166,7 @@
         <br>
         <p><a href="/downloads/java/ArbolBinario.rar" download="ArbolBinario.rar" >Descargar código</a> </p>
     </div>
-    <script src="/javascript/prism.js"></script> 
+
 <!--Footer-->   
 <div class="footer">     
     <div class="card-body" style="background-color:rgb(212, 212, 212)" >
@@ -188,7 +177,6 @@
     </div>       
 </div> 
 <!--Footer-->
-</body>   
-<script src="{{url_for('static', filename='javascript/menu.js')}}"></script>
 
-</html>
+
+{% endblock %}
