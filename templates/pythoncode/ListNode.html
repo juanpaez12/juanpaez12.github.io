@@ -28,58 +28,58 @@
                 # -*- coding: utf-8 -*-
 
                 class ListNode:
-                    object = None
+                    Object = None
                     Next = None
                     Previous = None
                     
                     def __init__(self):
-                        self.object = None
+                        self.Object = None
                         self.Next = None
                         self.Previous = None
                         
                     @classmethod
-                    def NodeObject(cls,objecto):
+                    def NodeObject(cls,Objecto):
                         Nodo = cls.__new__(cls)
-                        Nodo.object = objecto
+                        Nodo.Object = Objecto
                         Nodo.Next = None
                         Nodo.Previous = None
                         return Nodo
                         
                     @classmethod
-                    def NodeObjectNext(cls,objecto, nxt):
+                    def NodeObjectNext(cls,Objecto, nxt):
                         Nodo = cls.__new__(cls)
-                        Nodo.object = objecto
+                        Nodo.Object = Objecto
                         Nodo.Next = nxt
                         return Nodo
                     
                     @classmethod
-                    def NodeObjNxtPre(cls,objecto, nxt, pre):
+                    def NodeObjNxtPre(cls,Objecto, nxt, pre):
                         Nodo = cls.__new__(cls)
-                        Nodo.object = objecto
+                        Nodo.Object = Objecto
                         Nodo.Next = nxt
                         Nodo.Previous = pre
                         return Nodo
                     
                     def getObject(self):
-                        return self.object
+                        return self.Object
                     
-                    def setobject(self,objecto):
-                        self.object = objecto
+                    def setObject(self,Objecto):
+                        self.Object = Objecto
                         
                     def __str__(self):
                         if self.Previous == None :
-                            return "ListNode{object=" + str(self.object) + ", next=" + str(self.Next) + "}"
+                            return "ListNode{Object=" + str(self.Object) + ", next=" + str(self.Next) + "}"
                         else:
                             try:
-                                return "ListNode{object=" + str(self.object) + ", next=" + str(self.Next.getObject()) +", Previous =" +  str(self.Previous.getObject()) +  "}"
+                                return "ListNode{Object=" + str(self.Object) + ", next=" + str(self.Next.getObject()) +", Previous =" +  str(self.Previous.getObject()) +  "}"
                             except:
-                                return "ListNode{object=" + str(self.object) + ", next=" + "None" +", Previous =" +  str(self.Previous.getObject()) +  "}"
+                                return "ListNode{Object=" + str(self.Object) + ", next=" + "None" +", Previous =" +  str(self.Previous.getObject()) +  "}"
                     
-                    def isEquals(self, objecto):
-                        if(type(ListNode()) == type(objecto)):
-                            return str(self).__eq__(str(objecto))
+                    def isEquals(self, Objecto):
+                        if(type(ListNode()) == type(Objecto)):
+                            return str(self).__eq__(str(Objecto))
                         else:
-                            return self.object.__eq__(objecto)
+                            return self.Object.__eq__(Objecto)
                         return False
                     
                 

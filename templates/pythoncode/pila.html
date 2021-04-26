@@ -45,7 +45,7 @@
                         pass
                     
                     @abstractmethod
-                    def search(self,object):
+                    def search(self,Object):
                         pass
                     
                     @abstractmethod
@@ -57,7 +57,7 @@
                         pass
                     
                     @abstractmethod
-                    def push(self,object):
+                    def push(self,Object):
                         pass
                 
                 
@@ -105,9 +105,9 @@
                         self.Size -= 1
                         return a
                     
-                    def push(self,object):
+                    def push(self,Object):
                         try:
-                            nuevo = ListNode.NodeObject(object)
+                            nuevo = ListNode.NodeObject(Object)
                             nuevo.Next = self.top
                             self.top = nuevo
                             self.Size += 1
@@ -137,10 +137,10 @@
                         else:
                             return None
                     
-                    def search(self, object) :
+                    def search(self, Object) :
                         a = self.top
                         while a != null :
-                            if a.getObject()  == object :
+                            if a.getObject()  == Object :
                                 return true
                             
                             a = a.Next
