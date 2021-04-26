@@ -1,10 +1,48 @@
 {% extends "layout.html" %}
 
 {% block content %}
+<div class="header">
+    <nav class="navbar navbar-expand-lg navbar-collapse bg-secondary">           
+            <nav class="enlaces m-auto" style="font-size: medium;">
+                <ul class="navbar-nav" >
+                    <li class=" nav-item" >
+                        <a class="nav-link" href="{{url_for('home')}}">Inicio</a>
+                    </li>
+                    <li class="nav-item" >
+                        <a class="nav-link" href="{{url_for('index')}}">Estructuras</a>
+                    </li> 
+                    <li class="nav-item" >
+                        <a class="nav-link" href="{{url_for('modulo3')}}">Transformaciones</a>
+                    </li> 
+                </ul>                                  
+            </nav>                           
+    </nav>
+</div>
 <div class="container">
     <img src="{{url_for('static',filename='graph.png')}}" alt="Grafo">
 
-
+    <table class="default">
+        <tr>           
+            <th>Color</th>
+            <th>Significado</th>
+        </tr>
+        <tr>
+            <td>Rojo</td>
+            <td>Clases</td>
+        </tr>
+        <tr>
+            <td>Amarillo</td>
+            <td>Métodos</td>
+        </tr>
+        <tr>
+            <td>Azul</td>
+            <td>Atributos</td>
+        </tr>
+    </table>
+    <hr>
+    <p>
+        Escribe aquí lo que quieras
+    </p>
 </div>
 
 {% endblock %}
